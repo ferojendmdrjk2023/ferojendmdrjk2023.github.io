@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Media - Assignment 01 - Jeni Feronita</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+    
+<body>
+        <a-scene>  
+        <a-sky src="interior.jpg" radius="40" ></a-sky> 
+        <a-entity light="color: #ff4747; intensity: 3" position="-1 1 1"></a-entity>
+            <a-entity scale="5 7 5" position="-5 -18 -20" rotation="0 -50 0">
+                
+               <!-- <a-assets>
+                    <img id="skin" src="skin.jpg">
+                  </a-assets> -->
+
+                <!-- THE TAIL --> 
+                <a-entity>
+                    <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 0.90 -3.10" rotation="-75 0 0">
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 0.30 0 " rotation="0 0 90"></a-cylinder>
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.30 0" rotation="0 0 90"></a-cylinder>
+                </a-box>
+
+                <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 1.20 -3.60" rotation="-45 0 0">
+                    <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 0.30 0" rotation="0 0 90"></a-cylinder>
+                </a-box>
+
+                <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 1.70 -4" rotation="-15 0 0">
+                    <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 0.3 0" rotation="0 0 90"></a-cylinder>
+                </a-box>
+
+                <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 2.30 -4.10" rotation="0 0 0">
+                </a-entity>
+          
+               <!-- THE BODY -->
+                <a-entity><a-box color="#141414" src="skin.jpg" depth="1.5" height="0.8" width="2" position="0 1.60 -2" rotation="0 90 -45"> 
+                    <a-cone color="#a40404" height="0.6" radius-bottom="0.2" radius-top="0" position="-0.7 0.7 0" geometry="segmentsRadial:5"  ></a-cone>
+                    <a-cone color="#a40404" height="0.3" radius-bottom="0.2" radius-top="0" position="0 0.5 0" geometry="segmentsRadial:5"  ></a-cone>
+                    <a-cone color="#a40404" height="0.6" radius-bottom="0.2" radius-top="0" position="0.6 0.7 0" geometry="segmentsRadial:5"  ></a-cone>
+                </a-box>    
+                </a-entity>
+
+
+                <!-- THE NECK -->
+                <a-entity>
+                    <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 2.70 -1.10" rotation="30 0 0">
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.30 -0.01" rotation="0 0 90"></a-cylinder>  
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.3" height="0.4" width="0.3" position="0 3.20 -0.90" rotation="10 0 0">
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.30 -0.01" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                 </a-entity>
+
+                <!-- THE HEAD -->
+                <a-entity>
+                    <a-box color="#141414" src="skin.jpg" depth="1.2" height="0.4" width="0.8" position="0 3.80 -0.80" rotation="10 0 0">
+                        <a-box color="#141414" src="skin.jpg" depth="1.2" height="0.2" width="0.8" position="0 0.30 0" rotation="0 0 0"></a-box>
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.30 -0.01" rotation="0 0 90"></a-cylinder> 
+                        <a-cone color="#a40404" height="0.5" radius-bottom="0.2" radius-top="0" position="-0.2 0.5 0.3" geometry="segmentsRadial:5" > </a-cone>
+                        <a-cone color="#a40404" height="0.5" radius-bottom="0.2" radius-top="0" position="0.2 0.5 0.3" geometry="segmentsRadial:5" > </a-cone>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.6" height="0.1" width="0.6" position="0 3.50 0" rotation="30 0 0">
+                        <a-box color="#141414" src="skin.jpg" depth="0.6" height="0.1" width="0.6" position="0 0.20 0" rotation="-20 0 0"></a-box>
+                        <a-box color="#b30000" depth="0.1" height="0.15" width="0.1" position="0.20 0.30 -0.30" rotation="-20 0 0"></a-box> <!-- eyes -->
+                        <a-box color="#b30000" depth="0.1" height="0.15" width="0.1" position="-0.20 0.30 -0.30" rotation="-20 0 0"></a-box> <!-- eyes -->
+                    </a-box>
+                 </a-entity>
+
+                <!-- THE LEGS right-->
+                 <a-entity>
+                    <a-box color="#141414" src="skin.jpg" depth="1" height="0.4" width="0.3" position="1 0.60 -2.20" rotation="45 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="-0.20 0.20 -0.5" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.7" height="0.4" width="0.3" position="1.40 -0.05 -2" rotation="70 180 180"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="-0.2 -0.15 -0.3" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.1" height="1" width="0.5" position="1.4 -0.65 -1.70" rotation="90 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.40 -0.15" rotation="0 0 90"></a-cylinder>
+                    </a-box>    
+                </a-entity>
+
+                <!-- THE LEGS left-->
+                <a-entity position="-2 0 0">
+                    <a-box color="#141414" src="skin.jpg" depth="1" height="0.4" width="0.3" position="1 0.60 -2.20" rotation="45 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0.20 0.20 -0.5" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.7" height="0.4" width="0.3" position="0.6 -0.05 -2" rotation="70 180 180"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0.2 -0.15 -0.3" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.1" height="1" width="0.5" position="0.6 -0.65 -1.70" rotation="90 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.40 -0.15" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                </a-entity>
+
+
+                 <!-- THE HAND right-->
+                 <a-entity position="0.2 1.2 0.6" scale=".75 .75 .75">
+                    <a-box color="#141414" src="skin.jpg" depth="1" height="0.4" width="0.3" position="1 0.60 -2.20" rotation="45 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="-0.20 0.20 -0.5" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.7" height="0.4" width="0.3" position="1.40 -0.05 -2" rotation="70 180 180"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="-0.2 -0.15 -0.3" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.1" height="1" width="0.5" position="1.4 -0.80 -1.85" rotation="120 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.40 -0.15" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                </a-entity>
+
+                <!-- THE HAND left -->
+                <a-entity position="-1.8 1.2 0.6" scale=".75 .75 .75">
+                    <a-box color="#141414" src="skin.jpg" depth="1" height="0.4" width="0.3" position="1.1 0.60 -2.20" rotation="45 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0.2 0.20 -0.5" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.7" height="0.4" width="0.3" position="0.7 -0.05 -2" rotation="70 180 180"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0.2 -0.15 -0.3" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                    <a-box color="#141414" src="skin.jpg" depth="0.1" height="1" width="0.5" position="0.7 -0.80 -1.85" rotation="120 0 0"> 
+                        <a-cylinder color="#4e0904" height="0.1" radius="0.1" position="0 -0.40 -0.15" rotation="0 0 90"></a-cylinder>
+                    </a-box>
+                </a-entity>
+
+                <!-- THE WINGS -->
+                <a-entity>
+                    <a-triangle vertex-a="0 2.25 0" vertex-b="-0.5 -0.5 -0.5" vertex-c="4 -2 0" position="1 2 -2" rotation="-135 -0 -10" side="double" material="color: #a40404" > </a-triangle>   
+                    <a-triangle vertex-a="0 2.25 0" vertex-b="-0.5 -0.5 -0.5" vertex-c="4 -2 0" position="-1.2 1.6 -2" rotation="60 -50 135" side="double" material="color: #a40404" > </a-triangle>
+                </a-entity> 
+
+            
+            </a-entity>
+             </a-scene>
+
+
+
+
+</body>
+</html>
+            
