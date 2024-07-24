@@ -1,7 +1,9 @@
 ## Hi there 👋
 
+This is Creative Media Class - Assignment 01 - Basic VR
+
 <!--
-**web1group2/web1group2** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**ferojendmdrjk2023** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
