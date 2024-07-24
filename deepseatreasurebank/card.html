@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card slider Page</title>
+    <link rel="stylesheet" href="card/style.css">
+</head>
+    <body>
+        <main>
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Logo">
+                        <span>DEEP SEA TREASURE BANK</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-item"><a href="card.html">The Sea</a></div>
+                    <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+                    <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+                    <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+                    <div class="login">
+                        <div class="nav-item">
+                            <button onclick="openModal('login-form')">Login</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hamburger" onclick="toggleSideMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        
+            <div id="login-form" class="modal">
+                <div class="modal-content">
+                    <span onclick="closeModal('login-form')" class="close-btn">&times;</span>
+                    <div class="modal-logo">
+                        <img src="images/logo2.png" alt="Logo">
+                    </div>
+                    <form>
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="uname" required>
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <button type="submit">Login</button>
+                            <button type="button" onclick="closeModal('login-form')" class="cancelbtn">Cancel</button>
+                            <div class="signup-container">
+                                <p>Don't have an account? <a href="#" class="signup-link" onclick="switchToSignup()">Sign Up</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+            <div id="signup-form" class="modal">
+                <div class="modal-content">
+                    <span onclick="closeModal('signup-form')" class="close-btn">&times;</span>
+                    <div class="modal-logo">
+                        <img src="images/logo2.png" alt="Logo">
+                    </div>
+                    <form onsubmit="return validateSignupForm()">
+                        <div class="container">
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" required>
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="uname" required>
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <label for="psw-repeat"><b>Repeat Password</b></label>
+                            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                            <p>Password must contain:</p>
+                            <ul class="password-rules">
+                                <li>At least one lowercase letter</li>
+                                <li>At least one uppercase letter</li>
+                                <li>At least one number</li>
+                                <li>At least one special character</li>
+                                <li>At least 8 characters</li>
+                            </ul>
+                            <button type="submit">Sign Up</button>
+                            <button type="button" onclick="closeModal('signup-form')" class="cancelbtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+            <div id="contact-form" class="modal">
+                <div class="modal-content">
+                    <span onclick="redirectToHomepage()" class="close-btn">&times;</span>
+                    <div class="modal-logo">
+                        <img src="images/logo2.png" alt="Logo">
+                    </div>
+                    <form>
+                        <div class="container">
+                            <label for="name"><b>Name</b></label>
+                            <input type="text" placeholder="Enter Your Name" name="name" required>
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Your Email" name="email" required>
+                            <label for="message"><b>Message</b></label>
+                            <textarea placeholder="Enter Your Message" name="message" required></textarea>
+                            <button type="submit">Send</button>
+                            <button type="button" onclick="redirectToHomepage()" class="cancelbtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+
+            <div>
+                <h1> About Our Sea! </h1>
+            </div>
+
+           <!-- <section class="about" style="background-color: rgb(225, 234, 240) "> -->
+            <section class="about">
+                <div>
+                    <p>
+                        We are a Bank that started in 2024, a Bank that is dedicated to making 
+                        a safe and far away place for you to seal you treasures in. With the advance technology
+                        we were able to work together with the deep creatures of the sea to create a bank thast trusted just by humans but Fish to!
+                        With 24 hour security, loyal and caring people, we are here to ensure your tresures will be safe fro generations to come. The top 200 meters of the ocean are known as the sunlight, or euphotic, zone. Plants, who convert the sun's energy into food via photosynthesis, form the basis of the food chain at these depths, where there is indeed sunlight. At 200 meters depth, we enter the twilight zone, where light starts to decrease rapidly. Ocean depths greater than 1,000 meters (3,280 feet) are completely devoid of light and photosynthesis does not take place. </p>
+                    <p>Sunlight doesn't just provide the energy for photosynthesis: it also heats the water. This means that the deep ocean is also cold with an average temperature of only 4°C (39°F). These depths are also subject to extreme pressure, from about 40 to over 110 times the pressure of Earth's atmosphere. This means the “deep” is the part of our ocean that is dark, cold, food-poor, subject to intense pressure, and typically deeper than 200 meters. Despite these extreme conditions, life has found a way to thrive even at great ocean depths, and with each new mission to explore the deep, we make new discoveries that increase our understanding of one of the largest, but least understood, living places on our planet. </p>
+                    <p>
+                        So it is guaranteed that your treasures will be treasured, don't worry it also wont get wet. </p>
+                    <p>To get an idea of how vast the ocean's depths are, consider that 79% of the entire volume of the earth's biosphere consists of waters with depths greater than 1,000 m. Until recently, the deep sea was largely unexplored. But advances in deep sea submersibles and image capturing and sampling technologies are increasing the opportunities for marine biologists to observe and uncover the mysteries of the deep ocean realm.
+
+                        Deep sea research is vital because this area is such an enormous part of the biosphere. Despite its depth and distance, it is still our backyard in comparison to outer space. And yet, human exploration has revealed more detail about the surface of the moon and Mars that it has about the deep sea! Consider that hydrothermal vents and their unique organisms, which revolutionized our ideas about energy sources and the adaptability of life, were only discovered in 1977. There may be yet other life-altering discoveries to be found at the bottom of the ocean.
+                    </p>
+                    <P>The oceans are divided into two broad realms; the pelagic and the benthic. Pelagic refers to the open water in which swimming and floating organisms live. Organisms living there are called the pelagos. From the shallowest to the deepest, biologists divide the pelagic into the epipelagic (less than 200 meters, where there can be photosynthesis), the mesopelagic (200-1,000 meters, the “twilight” zone with faint sunlight but no photosynthesis), the bathypelagic (1,000-4,000 meters), the abyssopelagic (4,000-6,000 meters) and the deepest, the hadopelagic (the deep trenches below 6,000 meters to about 11,000 m or 36,000 feet deep). The last three zones have no sunlight at all.
+
+                        Benthic zones are defined as the bottom sediments and other surfaces of a body of water such as an ocean or a lake. Organisms living in this zone are called benthos. They live in a close relationship with the bottom of the sea, with many of them permanently attached to it, some burrowed in it, others swimming just above it. In oceanic environments, benthic habitats are zoned by depth, generally corresponding to the comparable pelagic zones: the intertidal (where sea meets land, with no pelagic equivalent), the subtidal (the continental shelves, to about 200 m), the bathyal (generally the continental slopes to 4,000 m), the abyssal most of the deep ocean seafloor, 4,000-6,000 m, and the hadal (the deep trenches 6,000 to 11,000 m).
+                    </P>
+                    <p>Exploration of these zones has presented a challenge to scientists for decades and much remains to be discovered. However, advances in technology are increasingly allowing scientists to learn more about the strange and mysterious life that exists in this harsh environment. Life in the deep sea must withstand total darkness (except for non-solar light such as bioluminescence), extreme cold, and great pressure. To learn more about deep-sea marine life, sophisticated data collection devices have been developed to collect observations and even geological and biological samples from the deep. First, advances in observational equipment such as fiber optics that use LED light and low light cameras has increased our understanding of the behaviors and characteristics of deep sea creatures in their natural habitat. Such equipment may be deployed on permanent subsea stations connected to land by fiber optic cables, or on “lander” devices which drop to the seafloor and which are later retrieved (typically after a radio command activates the dropping of ballast so the lander may float up.) Second, remotely operated vehicles (ROVs) have been used underwater since the 1950s. ROVs are basically unmanned submarine robots with 
+                        umbilical cables used to transmit data between the vehicle and researcher for remote operation in areas where diving is constrained by physical hazards. ROVs are often fitted with video and still cameras as well as with mechanical tools such as mechanical arms for specimen retrieval and measurements. Other unmanned submarine robots include AUVs (autonomous undersea vehicles) that operate without a cable, and the USA’s new Nereus, a hybrid unmanned sub which can switch from ROV to AUV mode and which is currently the world’s only unmanned submarine capable of reaching the deepest trenches. Third, manned deep sea submersibles are also used to explore the ocean’s depths. Alvin is an American deep sea submersible built in 1964 that has been used extensively over the past 4 decades to shed light on the black ocean depths. Like ROVs, it has cameras and mechanical arms. This sub, which carries 3 people (typically a pilot and 2 scientists), has been used for more than 4,000 dives reaching a maximum depth of more than 4,500 m. France, Japan and Russia have similar manned scientific submersibles that can reach somewhat greater depths, while China is currently building one to reach 7,000 m.</p>
+                    <p>The deep sea begins below about 200 m, where sunlight becomes inadequate for photosynthesis. From there to about 1,000 m, the mesopelagic or “twilight” zone, sunlight continues to decrease until it is gone altogether. This faint light is deep blue in color because all the other colors of light are absorbed at depth. The deepest ocean waters below 1,000 m are as black as night as far as sunlight is concerned. And yet, there IS some light. People who dive deep in a submersible (with its lights off) are often mesmerized by an incredible “light show” of floating, swirling, zooming flashes of light. This is bioluminescence, a chemical reaction in a microbe or animal body that creates light without heat, and it is very common. And yet, this light is low compared to sunlight, so animals here — as well as those in the mesopelagic zone — need special sensory adaptations. Many deep-sea fish such as the stout blacksmelt have very large eyes to capture what little light exists. Other animals such as tripodfishes are essentially blind and instead rely on other, enhanced senses including smell, touch and vibration.</p>
+                    <p> Considering the volume of water above the deepest parts of the ocean, it’s no wonder that hydrostatic pressure is one of the most important environmental factors affecting deep sea life. Pressure increases 1 atmosphere (atm) for each 10 m in depth. The deep sea varies in depth from 200 m to about 11,000 m, therefore pressure ranges from 20 atm to more than 1,100 atm. High pressures can cause air pockets, such as in fish swim bladders, to be crushed, but it does not compress water itself very much. Instead, high pressure distorts complex biomolecules — especially membranes and proteins — upon which all life depends. Indeed, many food companies now use high pressure to sterilize their products such as packaged meats.</p>
+                    <p> Life appears to cope with pressure effects on biomolecules in two ways. First, their membranes and proteins have pressure-resistant structures that work by mechanisms not yet fully understood, but which also mean their biomolecules do not work well under low pressure in shallow waters. Second, some organisms may use “piezolytes” (from the Greek “piezin” for pressure). These are small organic molecules recently discovered that somehow prevent pressure from distorting large biomolecules. One of these piezolytes is trimethylamine oxide (TMAO). This molecule is familiar to most people because it gives rise to the fishy smell of marine fish and shrimp. TMAO is found at low levels in shallow marine fish and shrimp that humans routinely eat, but TMAO levels increase linearly with depth and pressure in other species. Really deep fish, including some grenadiers which humans are now fishing, smell much more fishy!</p>
+                    <p> Animals brought from great depth to the surface in nets and submersible sample boxes generally die; in the case of some (but not most) deep-sea fishes, their gas-filled swim bladder (adapted to resist high pressure) expands to a deadly size. However, the vast majority of deep-sea life has no air pockets that would expand as pressure drops during retrieval. Instead, it is thought that rapid pressure as well as temperature changes kill them because their biomolecules no longer work well (high TMAO does not help, as it appears to be too high in deep-sea life for biomolecules to work properly at the surface). Advances in deep sea technology are now enabling scientists to collect species samples in chambers under pressure so that they reach the surface for study in good condition.</p>
+                    <p> Pressure-adapted microbes have been retrieved from trenches down to 11,000 m, and have been found in the laboratory to have all these adaptations (pressure-resistant biomolecules and piezolytes). However, pressure adaptations have only been studied in animals down to about 5,000 m. We do not yet know if the adaptations found at those depths work at greater depths down to 11,000 m.</p>
+    
+            </div>
+            </section>
+
+        
+         <!-- <div class="idontknow"> -->
+            <div class="slider-cont">
+                <div id="leftarrow"><</div>
+
+                <div id="biglong">
+                    <div id="profile-container">
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/angler.jpeg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> MS.Angler</h2>
+                                    <p class="profile-desc"> Watcher of the night.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/giantcrab.png" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> MS.Crabs</h2>
+                                    <p class="profile-desc"> Money heheheehe.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/octo.jpg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Mr.Octo</h2>
+                                    <p class="profile-desc"> Your money is safe.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/van.jpeg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Vania</h2>
+                                    <p class="profile-desc"> Seaweed watcher.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/shrimp.jpg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Shrimpy</h2>
+                                    <p class="profile-desc"> Our Strongest swimmer.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/jen.jpeg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Jeni</h2>
+                                    <p class="profile-desc"> Our Tech Girl.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/bear.jpeg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Bernice</h2>
+                                    <p class="profile-desc"> trying to not pat Mr.Octo.</p>
+                                </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-img">
+                                <img src="card/image/blobby.jpg" class="profile-thumb" alt="">
+                            </div>
+                                <div class="profile-info">
+                                    <h2 class="profile-name"> Bob</h2>
+                                    <p class="profile-desc"> Our Manager of the reefs.</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rightarrow">></div>
+            </div>
+            </div>
+</main>
+       <div id="side-menu" class="side-menu">
+        <span class="close-btn" onclick="toggleSideMenu()">&times;</span>
+        <div class="side-menu-container">
+            <div class="side-menu-logo-container">
+                <img src="images/logo.png" alt="Logo" class="side-menu-logo">
+            </div>
+            <div class="nav-item"><a href="card.html">The Sea</a></div>
+            <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+            <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+            <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+            <div class="nav-item login-item">
+                <div class="login-container">
+                    <button onclick="openModal('login-form')">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Deepsea Treasure Bank.<br> 
+            All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@deepseatb.com">info@deepseatb.com</a> <br>
+            Phone: +000 1213 1989</p>
+            <p>Address: 123 Ocean Drive, Atlantis City 123456</p>    
+            <div class="footer-icons">
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>           
+            </div>
+        </div>
+    </footer>
+    <script src="table/scripts.js"></script>
+        
+</body>             
+</html>
+
+
+
+<script type="text/javascript">
+        var la = document.getElementById('leftarrow');
+        var ra = document.getElementById('rightarrow');
+        
+            la.onclick = function() {
+                var ts = document.getElementById('profile-container');
+                var parentPos = document.getElementById('biglong').getBoundingClientRect();
+                var childPos  = document.getElementById('profile-container').getBoundingClientRect();
+                var relativePosLeft   = childPos.left - parentPos.left;
+                var newleft = relativePosLeft - 500;
+                if (relativePosLeft >= -1000) {
+                    ts.style.left = newleft + 'px';
+                }
+            }
+            ra.onclick = function() {
+                var ts = document.getElementById('profile-container');
+                var parentPos = document.getElementById('biglong').getBoundingClientRect();
+                var childPos  = document.getElementById('profile-container').getBoundingClientRect();
+                var relativePosLeft   = childPos.left - parentPos.left;
+                var newleftb = relativePosLeft + 500;
+                if (relativePosLeft < 0) { 
+                    ts.style.left = newleftb + 'px';
+                }
+            }
+    </script>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>DEEPSEA TREASURE BANK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/highlight-01-styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo">
+                <span>DEEP SEA TREASURE BANK</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <div class="nav-item"><a href="card.html">The Sea</a></div>
+            <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+            <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+            <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+            <div class="login">
+                <div class="nav-item">
+                    <button onclick="openModal('login-form')">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger" onclick="toggleSideMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <div id="login-form" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('login-form')" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="closeModal('login-form')" class="cancelbtn">Cancel</button>
+                    <div class="signup-container">
+                        <p>Don't have an account? <a href="#" class="signup-link" onclick="switchToSignup()">Sign Up</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup-form" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('signup-form')" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form onsubmit="return validateSignupForm()">
+                <div class="container">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    <p>Password must contain:</p>
+                    <ul class="password-rules">
+                        <li>At least one lowercase letter</li>
+                        <li>At least one uppercase letter</li>
+                        <li>At least one number</li>
+                        <li>At least one special character</li>
+                        <li>At least 8 characters</li>
+                    </ul>
+                    <button type="submit">Sign Up</button>
+                    <button type="button" onclick="closeModal('signup-form')" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="contact-form" class="modal">
+        <div class="modal-content">
+            <span onclick="redirectToHomepage()" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form>
+                <div class="container">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Your Name" name="name" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Your Email" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                    <textarea placeholder="Enter Your Message" name="message" required></textarea>
+                    <button type="submit">Send</button>
+                    <button type="button" onclick="redirectToHomepage()" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <main>
+    <div class="page-container">
+        <div class="content-wrap">
+            <div class="container">
+                <div class="highlight01" id="highlight-section">
+                    <div class="image-container">
+                        <img src="images/image1.jpg" alt="OCEAN WORLD DAY">
+                    </div>
+                    <div class="highlight01-text">
+                        <h1>World Ocean Day Celebration</h1>
+                        <p>The headlines are urgent these days. The unfathomable multiple mass shootings. State governments turning their backs on women’s rights with their anti-abortion laws. Ukraine suffering continuing losses that grip us day by day.
+                            But today is World Ocean Day and, just as we each one of us finds a way to push onward in living the best lives we can, we cannot forget the gift of breath our majestic oceans give us.
+                        </p>
+                        <p>Carl Sagan did say that it would be a waste of space, if no other life other than ours existed out in the universe. Yet it was Sagan who also coined our paradise “a blue speck” and, so far, it is the only blue orb we know in all that vast black space out there.
+                        </p>    
+                        <p>It is our oceans that produce 50% of our oxygen and at the same time soak up some 30% of our carbon dioxide, serving as a force to limit global warming.
+                            The devastation of our oceans is ongoing. We are losing our vital reefs and drastically reducing our fish populations. The abuse of our blue seas tells a tragic tale.
+                            But one proactive step we can all take is to use less single-use plastic, plastic that more than not finds its way into our oceans.
+                        </p>
+                        <p>We can surely take one day to either stand on an ocean shore or close our eyes and feel the sweep of the ocean’s tides. We can take one day to remember how vital, how grand, how precious our oceans are to us. Today is that day. 
+                        </p>
+                        <p>Do your part. Show your love for our beautiful oceans.
+                        </p>
+                    </div> 
+                    <div class="source-text">
+                        <p>Source: Nyad, D. (2022, June 8). World Oceans Day - Diana Nyad - Medium. Medium. <br>
+                            <a href="https://medium.com/@diananyad/world-oceans-day-e23e3eeafdca">https://medium.com/@diananyad/world-oceans-day-e23e3eeafdca</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+        <div id="side-menu" class="side-menu">
+            <span class="close-btn" onclick="toggleSideMenu()">&times;</span>
+            <div class="side-menu-container">
+                <div class="side-menu-logo-container">
+                    <img src="images/logo.png" alt="Logo" class="side-menu-logo">
+                </div>
+                <div class="nav-item"><a href="card.html">The Sea</a></div>
+                <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+                <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+                <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+                <div class="nav-item login-item">
+                    <div class="login-container">
+                        <button onclick="openModal('login-form')">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <footer>
+            <div class="footer-container">
+                <p>&copy; 2024 Deepsea Treasure Bank.<br> 
+                All rights reserved.</p>
+                <p>Contact us: <a href="mailto:info@deepseatb.com">info@deepseatb.com</a> <br>
+                Phone: +000 1213 1989</p>
+                <p>Address: 123 Ocean Drive, Atlantis City 123456</p>    
+                <div class="footer-icons">
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>           
+                </div>
+            </div>
+        </footer>
+        <script src="scripts/scripts.js"></script>
+</body>
+</html>

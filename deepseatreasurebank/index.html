@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>DEEP SEA TREASURE BANK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo">
+                <span>DEEP SEA TREASURE BANK</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <div class="nav-item"><a href="card.html">The Sea</a></div>
+            <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+            <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+            <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+            <div class="login">
+                <div class="nav-item">
+                    <button onclick="openModal('login-form')">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger" onclick="toggleSideMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <div id="login-form" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('login-form')" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="closeModal('login-form')" class="cancelbtn">Cancel</button>
+                    <div class="signup-container">
+                        <p>Don't have an account? <a href="#" class="signup-link" onclick="switchToSignup()">Sign Up</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup-form" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('signup-form')" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form onsubmit="return validateSignupForm()">
+                <div class="container">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    <p>Password must contain:</p>
+                    <ul class="password-rules">
+                        <li>At least one lowercase letter</li>
+                        <li>At least one uppercase letter</li>
+                        <li>At least one number</li>
+                        <li>At least one special character</li>
+                        <li>At least 8 characters</li>
+                    </ul>
+                    <button type="submit">Sign Up</button>
+                    <button type="button" onclick="closeModal('signup-form')" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="contact-form" class="modal">
+        <div class="modal-content">
+            <span onclick="redirectToHomepage()" class="close-btn">&times;</span>
+            <div class="modal-logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <form>
+                <div class="container">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Your Name" name="name" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Your Email" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                    <textarea placeholder="Enter Your Message" name="message" required></textarea>
+                    <button type="submit">Send</button>
+                    <button type="button" onclick="redirectToHomepage()" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="home-section">
+        <div class="overlay"></div>
+        <img src="images/main-image.jpg" alt="under the sea">
+        <div class="welcome-text">
+            <h1>Welcome to THE DEEP SEA TREASURE BANK</h1>
+            <p>Explore the depths of the sea with us and discover the treasures that lie beneath.</p>
+        </div>
+    </div>
+
+    <main>
+        <section id="highlights">
+            <div class="highlights-container">
+                <h2>Highlights</h2>
+                <div class="highlight">
+                    <img src="images/image1.jpg" alt="OCEAN WORLD DAY">
+                    <div class="highlight-text">
+                        <h3>World Ocean Day Celebration</h3>
+                        <p>Have fun and save the sea from extinction.</p>
+                        <a href="highlight-01.html" class="btn">Find out more</a>
+                    </div>
+                </div>
+                <div class="highlight right-align">
+                    <img src="images/image2.jpg" alt="WEEKEND UNDER THE SEA">
+                    <div class="highlight-text">
+                        <h3>Fun weekend with friends from beneath</h3>
+                        <p>Every weekend we have fun game and treasure hunter party.</p>
+                        <a href="highlight-02.html" class="btn">Find out more</a>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <img src="images/image3.jpg" alt="SAVE THE OCEAN">
+                    <div class="highlight-text">
+                        <h3>Partnering with global environmentalists, "Together We Save The Future."</h3>
+                        <p>DEEP SEA BANK with our global partner, making commitment for the future.</p>
+                        <a href="highlight-03.html" class="btn">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="side-menu" class="side-menu">
+        <span class="close-btn" onclick="toggleSideMenu()">&times;</span>
+        <div class="side-menu-container">
+            <div class="side-menu-logo-container">
+                <img src="images/logo.png" alt="Logo" class="side-menu-logo">
+            </div>
+            <div class="nav-item"><a href="card.html">The Sea</a></div>
+            <div class="nav-item"><a href="table.html">Deep Dive</a></div>
+            <div class="nav-item"><a href="promo.html">Catalogues</a></div>
+            <div class="nav-item"><a href="#" onclick="openModal('contact-form')">Get-in-Touch</a></div>
+            <div class="nav-item login-item">
+                <div class="login-container">
+                    <button onclick="openModal('login-form')">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Deepsea Treasure Bank.<br> 
+            All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@deepseatb.com">info@deepseatb.com</a> <br>
+            Phone: +000 1213 1989</p>
+            <p>Address: 123 Ocean Drive, Atlantis City 123456</p>    
+            <div class="footer-icons">
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>           
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
