@@ -238,24 +238,21 @@
         <div class="logo"><img src="logo.png" alt="logo"></div>
 
         <div class="location-link">
-            <div class="location-btn" onclick="showAddress('bali','+6285799057000')"><b>Nusa Dua, Bali</b></div>
-            <div class="location-btn" onclick="showAddress('gunawarman','+6285338807000')"><b>Gunawarman, Jkt</b></div>
-            <div class="location-btn" onclick="showAddress('pakubuwono','+6282368287000')"><b>Pakubuwono, Jkt</b></div>
-            <div class="location-btn" onclick="showAddress('depok','+6285373787000')"><b>Juanda, Depok</b></div>
-            <div class="location-btn" onclick="showAddress('pasteur','+6285368187000')"><b>Pasteur, Bandung</b></div>
-            <div class="location-btn" onclick="showAddress('mekarwangi','+628776380700')"><b>Mekar Wangi, Bandung</b></div>
-            <div class="location-btn" onclick="showAddress('sukajadi','+6285370097000')"><b>Sukajadi, Bandung</b></div>
-            <div class="location-btn" onclick="showAddress('sunda','+6285232557000')"><b>Sunda, Bandung</b></div>
-            <div class="location-btn" onclick="showAddress('palu','+6285360827000')"><b>Basuki Rahmat, Palu</b></div>
-            <div class="location-btn" onclick="showAddress('makassar','+6282365157000')"><b>Pengayoman, Makassar</b></div>     
+            <div class="location-btn" onclick="showAddress('bali','+6285799057000', 'Hello Zen Spa Bali, may I have information about:')"><b>Nusa Dua, Bali</b></div>
+            <div class="location-btn" onclick="showAddress('gunawarman','+6285338807000', 'Hello Zen Spa Gunawarman, may I have information about:')"><b>Gunawarman, Jkt</b></div>
+            <div class="location-btn" onclick="showAddress('pakubuwono','+6282368287000', 'Hello Zen Spa Pakubuwono, may I have information about:')"><b>Pakubuwono, Jkt</b></div>
+            <div class="location-btn" onclick="showAddress('depok','+6285373787000', 'Hello Zen Spa Juanda, may I have information about:')"><b>Juanda, Depok</b></div>
+            <div class="location-btn" onclick="showAddress('pasteur','+6285368187000', 'Hello Zen Spa Pasteur, may I have information about:')"><b>Pasteur, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('mekarwangi','+628776380700', 'Hello Zen Spa Mekar Wangi, may I have information about:')"><b>Mekar Wangi, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('sukajadi','+6285370097000', 'Hello Zen Spa Sukajadi, may I have information about:')"><b>Sukajadi, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('sunda','+6285232557000', 'Hello Zen Spa Sunda, may I have information about:')"><b>Sunda, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('palu','+6285360827000', 'Hello Zen Spa Palu, may I have information about:')"><b>Basuki Rahmat, Palu</b></div>
+            <div class="location-btn" onclick="showAddress('makassar','+6282365157000', 'Hello Zen Spa Makassar, may I have information about:')"><b>Pengayoman, Makassar</b></div>     
         </div>
 
         <div class="location-city">
           <div id="native-open" class="native"> <p>Choose Your Location<br>
           and RSVP</p></div>
-
-          <!-- <div id="native" class="location-address"><p style="padding-top: 30px;">Choose Your Location<br>
-            and RSVP</p></div> -->
             <div id="bali" class="location-address"><p>Jl. Bypass Ngurah Rai No.89<br>
             Benoa, Kuta Selatan, Badung,<br>
              Bali 80361</p></div>
@@ -304,7 +301,7 @@
   </body>
 </html>
 <script>
-  function showAddress(locationId, phoneNumber) {
+  function showAddress(locationId, phoneNumber, text) {
   // Hide all location addresses
   var addresses = document.getElementsByClassName('location-address');
   for (var i = 0; i < addresses.length; i++) {
@@ -318,7 +315,7 @@
   var rsvpButton = document.getElementById('rsvp-button');
   rsvpButton.style.display = 'block';
   rsvpButton.onclick = function() {
-      location.replace('https://wa.me/' + phoneNumber + '?text=Hello Zen Spa, may I have information about:');
+      location.replace('https://wa.me/' + phoneNumber + '?text=' + text);
   };
 }
 
