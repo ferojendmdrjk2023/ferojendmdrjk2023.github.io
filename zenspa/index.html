@@ -187,6 +187,9 @@
     init: function () {
       this.el.addEventListener('markerFound', () => {
         var check = this.el.getAttribute("url");
+            // alert(check);
+            document.getElementById('card').style.display = "block";
+          });
     }
   });
 </script>
