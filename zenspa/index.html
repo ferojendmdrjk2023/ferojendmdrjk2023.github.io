@@ -187,16 +187,6 @@
     init: function () {
       this.el.addEventListener('markerFound', () => {
         var check = this.el.getAttribute("url");
-
-        if (check === "zenspa/image02") {
-          document.getElementById('card1').style.display = "block";
-          document.getElementById('card2').style.display = "none";
-        } else if (check === "zenspa/image03") {
-          document.getElementById('card2').style.display = "block";
-          document.getElementById('card1').style.display = "none";
-        }
-      });
-
     }
   });
 </script>
