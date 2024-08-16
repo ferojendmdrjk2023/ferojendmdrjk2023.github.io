@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEN Health & Beauty Spa - RSVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="a.js"></script>
+    <script src="b.js"></script>
+
+
+    <style>
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+        font-family: 'Monstserrat', sans-serif;
+     }
+
+     .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #1C1F1D;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .arjs-loader div {
+        text-align: center;
+        font-size: 16px;
+        color: #FFF4e0;
+        font-family: sans-serif;
+     }
+
+     .xx-loader {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #1C1F1D;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .xx-loader div {
+        text-align: center;
+     }
+
+
+     #card {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        display: none;
+        background-color: #FFF4e0;
+      }
+
+
+
+      .main-container {
+          max-width: 480px;
+          padding: 15px;
+          box-sizing: border-box;
+      }
+
+      .logo {
+          text-align: center;
+          margin-bottom: 5px;
+      }
+
+      .logo img {
+          width: 300px; 
+      }
+
+
+      .location-link {
+          display: flex;
+          overflow-x: auto; 
+          white-space: nowrap; 
+          padding: 10px 0;
+          border-bottom: 1px solid #ddd; 
+          margin-bottom: 15px;
+          -webkit-overflow-scrolling: touch; 
+      }
+
+      .location-btn {
+          display: inline-block;
+          padding: 8px 15px;
+          margin-right: 10px;
+          background-color: #fbc351;
+          color: #172654;
+          border: none;
+          border-radius: 5px;
+          text-align: center;
+          white-space: nowrap;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          flex-shrink: 0; 
+          font-size: 14px; 
+      }
+
+      .location-btn:hover {
+          background-color: #fee2b0; 
+      }
+
+      .location-btn:last-child {
+          margin-right: 0; 
+      }
+
+
+
+      .location-address {
+          display: none;
+          padding: 10px;
+          margin-bottom: 10px;
+          height: 20vh;
+      }
+
+      .location-address, .native p {
+          margin: 0;
+          padding: 15px 25px;
+          line-height: 2;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          font-size: 16px; 
+          font-weight: 600;
+      }
+
+
+      .rsvp-button {
+          text-align: center;
+          align-items: flex-end;
+      } 
+
+      .rsvp-btn button {
+          padding: 15px 25px;
+          background-color: #685f50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 20px;
+          font-weight: 700;
+          transition: background-color 0.3s ease;
+          width: 100%;
+          display: none;
+      }
+
+
+
+
+      .rsvp-btn button:hover {
+          background-color: #989187;
+      }
+
+
+      .location-link::-webkit-scrollbar {
+          height: 6px;
+      }
+
+      .location-link::-webkit-scrollbar-thumb {
+          background-color: #685f50;
+          border-radius: 10px;
+      }
+
+      .location-link::-webkit-scrollbar-thumb:hover {
+          background-color: #989187;
+      } 
+
+    </style>
+   <script>
+  AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.addEventListener('markerFound', () => {
+        var check = this.el.getAttribute("url");
+
+        if (check === "zenspa/image02") {
+          document.getElementById('card1').style.display = "block";
+          document.getElementById('card2').style.display = "none";
+        } else if (check === "zenspa/image03") {
+          document.getElementById('card2').style.display = "block";
+          document.getElementById('card1').style.display = "none";
+        }
+      });
+
+      this.el.addEventListener('markerLost', () => {
+        document.getElementById('card1').style.display = "none";
+        document.getElementById('card2').style.display = "none";
+      });
+    }
+  });
+</script>
+  </head>
+ <body style="margin: 0px; overflow: hidden;" onload="document.getElementById('xx').style.display='none'">
+  <div id="xx" class="xx-loader"><div>Loading, please wait...</div></div>
+
+  <div id="card1" style="display: none;">Image for Marker 1</div>
+  <div id="card2" style="display: none;">Image for Marker 2</div>
+
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+
+    <a-nft
+      markerhandler
+      type="nft"
+      url="zenspa/image02"
+      smooth="true"
+      smoothCount="100"
+      smoothTolerance=".1"
+      smoothThreshold="50">
+    </a-nft>
+
+    <a-nft
+      markerhandler
+      type="nft"
+      url="zenspa/image03"
+      smooth="true"
+      smoothCount="100"
+      smoothTolerance=".1"
+      smoothThreshold="50">
+    </a-nft>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+
+
+    <div id="card">
+      <div class="main-container">
+        <div class="logo"><img src="logo.png" alt="logo"></div>
+
+        <div class="location-link">
+            <div class="location-btn" onclick="showAddress('bali','+6285799057000', 'Hello Zen Spa Bali, may I have information about:')"><b>Nusa Dua, Bali</b></div>
+            <div class="location-btn" onclick="showAddress('gunawarman','+6285338807000', 'Hello Zen Spa Gunawarman, may I have information about:')"><b>Gunawarman, Jkt</b></div>
+            <div class="location-btn" onclick="showAddress('pakubuwono','+6282368287000', 'Hello Zen Spa Pakubuwono, may I have information about:')"><b>Pakubuwono, Jkt</b></div>
+            <div class="location-btn" onclick="showAddress('depok','+6285373787000', 'Hello Zen Spa Juanda, may I have information about:')"><b>Juanda, Depok</b></div>
+            <div class="location-btn" onclick="showAddress('pasteur','+6285368187000', 'Hello Zen Spa Pasteur, may I have information about:')"><b>Pasteur, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('mekarwangi','+628776380700', 'Hello Zen Spa Mekar Wangi, may I have information about:')"><b>Mekar Wangi, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('sukajadi','+6285370097000', 'Hello Zen Spa Sukajadi, may I have information about:')"><b>Sukajadi, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('sunda','+6285232557000', 'Hello Zen Spa Sunda, may I have information about:')"><b>Sunda, Bandung</b></div>
+            <div class="location-btn" onclick="showAddress('palu','+6285360827000', 'Hello Zen Spa Palu, may I have information about:')"><b>Basuki Rahmat, Palu</b></div>
+            <div class="location-btn" onclick="showAddress('makassar','+6282365157000', 'Hello Zen Spa Makassar, may I have information about:')"><b>Pengayoman, Makassar</b></div>     
+        </div>
+
+        <div class="location-city">
+          <div id="native-open" class="native"> <p>Choose Your Location<br>
+          and RSVP</p></div>
+            <div id="bali" class="location-address"><p>Jl. Bypass Ngurah Rai No.89<br>
+            Benoa, Kuta Selatan, Badung,<br>
+             Bali 80361</p></div>
+            <div  id="gunawarman" class="location-address"><p>Jl. Gunawarman No.43<br>
+            Kebayoran Baru,<br> 
+            Jakarta Selatan 12180</p></div>
+            <div id="pakubuwono" class="location-address"><p>Jl. Pakubuwono VI No.43<br>
+            Kebayoran Baru,<br> 
+            Jakarta Selatan 12120</p></div>
+            <div id="depok" class="location-address"><p>Jl. IR. H. Juanda No. 88D<br>
+            Bakti Jaya Sukmajaya, Beji, Depok,<br> 
+            Jawa Barat 16418</p></div>
+            <div id="pasteur" class="location-address"><p>Jl. Surya Sumantri No.18<br>
+            Sukajadi, Bandung,<br> 
+            Jawa Barat 40164</p></div>
+            <div id="mekarwangi" class="location-address"><p>Jl. Mekar Laksana No.8B Kav 12-14<br>
+            Sukajadi, Bandung,<br> 
+            Jawa Barat 40234</p></div>
+            <div id="sukajadi" class="location-address"><p>Jl. Sukajadi No.182<br>
+            Sukajadi, Bandung,<br> 
+            Jawa Barat 40161</p></div>
+            <div id="sunda" class="location-address"><p>Jl. Sunda No.68<br>
+            Sumur Bandung, Bandung,<br> 
+            Jawa Barat 40112</p></div>
+            <div id="palu" class="location-address"><p style="position:relative; top:-18px">Jl. Jenderal Basuki Rahmat<br>
+            Komplek Ruko No.182,<br> 
+            Tatura Utara, Palu Selatan,<br> 
+            Sulawesi Tengah 94236</p></div>
+            <div id="makassar" class="location-address"><p style="position:relative; top:-18px">Jl. Pengayoman No.15A<br>
+            Masale, Kec. Panakukang,<br>
+            Makassar,<br> 
+            Sulawesi Selatan 90231</p></div>
+        </div>
+
+        <div id="rsvp-button-container" class="rsvp-btn">
+            <button id="rsvp-button" type="button">RSVP via WhatsApp</button>
+        </div>
+
+      
+
+    </div>
+    
+    
+    </div>
+    
+  </body>
+</html>
+<script>
+  function showAddress(locationId, phoneNumber, text) {
+  // Hide all location addresses
+  var addresses = document.getElementsByClassName('location-address');
+  for (var i = 0; i < addresses.length; i++) {
+      addresses[i].style.display = 'none';
+  }
+  document.getElementById('native-open').style.display = 'none';
+  // Show the selected location address
+  document.getElementById(locationId).style.display = 'block';
+
+  // Update and show the RSVP button with the correct WhatsApp link
+  var rsvpButton = document.getElementById('rsvp-button');
+  rsvpButton.style.display = 'block';
+  rsvpButton.onclick = function() {
+      location.replace('https://wa.me/' + phoneNumber + '?text=' + text);
+  };
+}
+
+</script>
