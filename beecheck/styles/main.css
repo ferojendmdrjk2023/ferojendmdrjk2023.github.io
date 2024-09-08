@@ -1,0 +1,51 @@
+.logo-ctn {
+    position: absolute;
+    width: 1280px;
+    height: 100%;
+    left: 80px;
+}
+
+.welcome-container {
+    position: absolute;
+    right: 60%;
+    top: 30%;
+    width: calc(100vh - 50%);
+    height: calc(100vh - 50%);
+    z-index: 9;
+} 
+
+
+.logo-type {
+    line-height: 1;
+    text-align: left;
+    position: absolute;
+    padding: 20px;
+    width: 900px;
+    z-index: 10;
+}
+
+.fact-or-fake { 
+    letter-spacing: .15rem;
+    padding-top: 0;
+}
+
+.btn-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: left;
+    }
+
+.btn {
+    font-size: 32px;
+    font-weight: 500;
+    padding: 10px 32px;
+    text-align: center;
+    color: var(--clr-white);
+    background-color: #5B85D9;
+    border: 2px solid #5B85D9;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+

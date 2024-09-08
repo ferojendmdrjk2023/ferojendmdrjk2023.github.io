@@ -1,0 +1,76 @@
+.form-box-user {
+    padding: 20px;
+    position: relative;
+    width: 750px;
+    height: 700px;
+    margin-top: calc(50vh - 350px);
+    background-color: var(--clr-gradient);
+    border-radius: 20px;
+} 
+
+.type-labeled input[type=text], .type-labeled input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    
+}
+
+.type-labeled input::placeholder {
+    font-style: italic;
+    font-size: 14px;
+}
+
+
+.side-column {
+    padding: 20px;
+    position: relative;
+    width: 350px;
+    height: 700px;
+    margin-top: calc(50vh - 350px);
+    background-color: var(--clr-gradient);
+    border-radius: 20px;
+    text-align: center;
+   
+}
+
+.contributor-btn {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+
+.badge-icon-box#badge-icon-lvl {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 150px;  
+    margin: auto;
+}
+
+.badge-icon {
+    width: 100%;
+    text-align: center;
+    margin-top: 300px;
+}
+
+
+.playagain-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: auto;
+}
+
+
+.userprofile p {
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    font-family: "Dancing Script", cursive;
+}
