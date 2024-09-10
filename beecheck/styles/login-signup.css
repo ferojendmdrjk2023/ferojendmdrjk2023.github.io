@@ -1,0 +1,57 @@
+.form-box {
+    position: relative;
+    width: 750px;
+    height: 700px;
+    margin-top: calc(50vh - 350px);
+    background-color: var(--clr-gradient);
+    border-radius: 20px;
+    padding: 50px;
+} 
+
+
+.signup-container, .login-container {
+    text-align: center;
+    margin-top: 70px;
+}
+
+
+.type-labeled input::placeholder {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--clr-black);
+}
+
+.type-labeled input[type=text], 
+.type-labeled input[type=password], 
+.type-labeled input[type=email] {
+    font-size: 14px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: 1px solid var(--clr-white);
+    border-radius: 4px;
+}
+
+
+.error-message {
+    color: red;
+    margin-top: 16px;
+}
+
+
+.password-rules {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.password-rules p {
+    margin: 5px 0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center; 
+}
+
+
+    
