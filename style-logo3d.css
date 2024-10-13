@@ -28,6 +28,7 @@ h3 {
   cursor: pointer; /* Change the cursor to indicate it's clickable */
 }
 
+
 a.text:hover {
   color: #335a9e; /* Change text color on hover */
   text-decoration: none; /* Ensure no underline */
@@ -48,6 +49,28 @@ a.symbol:hover {
   display: grid;
 }
 
+
+@media ( max-width : 600px ) {
+.container {
+Only apply the CSS code below when screen width
+is between 0px - 750px.
+width : 350px ;
+}
+}
+@media ( min-width : 750.02px ) and ( max-width : 1000px ) {
+.container {
+width : 450px ;
+}
+
+}
+@media ( min-width : 1000.02px ) {
+.container  {
+width : 600px ;
+}
+
+
+
+  
 .rectangle {
   border-radius: 5px;
 }
