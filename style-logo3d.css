@@ -409,7 +409,10 @@ a.symbol:hover {
     transform: scale(0.5);
      transform-origin: center;
   }
-
+.text {
+  font-size: 10px;
+}
+  
   .sosmed-cont {
   position: relative;
   bottom: 0; /* Adjust the positioning for responsiveness */
@@ -419,8 +422,8 @@ a.symbol:hover {
 }
 
 .footer-text {
-  font-size: 5px;
-  bottom: -15px;   
+  font-size: 10px;
+  bottom: -10px;   
   position: relative;
 }
 }
