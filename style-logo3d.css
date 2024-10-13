@@ -390,19 +390,27 @@ a.symbol:hover {
  
 
 
-@media (max-width: 1024px) {
+@media (miin-width: 1024px) {
   .container {
     transform: scale(1.5);
      transform-origin: center;
   }
 }
 
-@media (max-width: 768px) {
+
+  @media ( min-width : 480.02px ) and ( max-width : 1024px )
   .container {
-    transform: scale(1);
-     transform-origin: center;
+  position: relative;
+  top: calc(50% - 175px);
+  left: calc(50% - 347.5px); /* Center horizontally, based on the width of 695px */
+  transform: scale(0.75); /* Vertically center and scale the group */
+  width: 695px;
+  height: 350px;
+  transform-origin: center;
+  display: grid;
   }
-}
+  
+
 
 @media (max-width: 480px) {
    .container {
