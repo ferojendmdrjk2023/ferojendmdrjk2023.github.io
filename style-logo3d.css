@@ -405,12 +405,19 @@ a.symbol:hover {
 }
 
 @media (max-width: 480px) {
-  .container {
-    transform: scale(0.5);
-     transform-origin: center;
+   .container {
+  position: relative;
+  top: calc(50% - 175px);
+  left: calc(50% - 347.5px); /* Center horizontally, based on the width of 695px */
+  transform: scale(0.5); /* Vertically center and scale the group */
+  width: 695px;
+  height: 350px;
+  transform-origin: center;
+  display: grid;
   }
+  
 .text {
-  font-size: 50px;
+  font-size: 50px !important;
 }
   
   .sosmed-cont {
@@ -423,7 +430,7 @@ a.symbol:hover {
 
 .footer-text {
   font-size: 10px;
-  margin-top: 20px;   
+  margin-top: 18px;   
   position: relative;
 }
 }
