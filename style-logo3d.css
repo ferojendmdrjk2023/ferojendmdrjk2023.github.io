@@ -410,7 +410,7 @@ a.symbol:hover {
      transform-origin: center;
   }
 .text {
-  font-size: 10px;
+  font-size: 50px;
 }
   
   .sosmed-cont {
@@ -423,7 +423,7 @@ a.symbol:hover {
 
 .footer-text {
   font-size: 10px;
-  bottom: -10px;   
+  margin-top: 20px;   
   position: relative;
 }
 }
