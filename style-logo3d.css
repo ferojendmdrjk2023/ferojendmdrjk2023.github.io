@@ -49,25 +49,6 @@ a.symbol:hover {
   display: grid;
 }
 
-
-@media ( max-width : 600px ) {
-.container {
-width : 350px ;
-}
-}
-@media ( min-width : 750.02px ) and ( max-width : 1000px ) {
-.container {
-width : 450px ;
-}
-
-}
-@media ( min-width : 1000.02px ) {
-.container  {
-width : 600px ;
-}
-
-
-
   
 .rectangle {
   border-radius: 5px;
@@ -385,4 +366,78 @@ width : 600px ;
   font-size: 10px;
   bottom: -25px;   
   position: relative;
+}
+
+
+
+
+/* Responsive Media */
+
+/* Responsive layout adjustments */
+@media (max-width: 1024px) {
+  .container {
+    top: calc(50% - 150px);
+    left: calc(50% - 250px); /* Adjust based on container width */
+    transform: scale(1.5); /* Reduce scaling for tablets */
+    width: 500px;
+    height: 250px;
+  }
+  .circle, .rectangle {
+    transform: scale(0.9); /* Adjust size for tablet view */
+  }
+  #sign {
+    top: 100px;
+    left: 150px;
+    transform: scale(0.7); /* Adjust logo size */
+  }
+  .footer-text {
+    font-size: 9px;
+    bottom: -20px; 
+  }
+}
+
+@media (max-width: 768px) {
+  /* Smartphone layout adjustments */
+  .container {
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    transform: scale(1.2); /* Reduce scaling for smartphones */
+    width: 400px;
+    height: 200px;
+  }
+  .circle, .rectangle {
+    transform: scale(0.75); /* Further adjust size for smaller screens */
+  }
+  #sign {
+    top: 50px;
+    left: 100px;
+    transform: scale(0.6); /* Adjust sign logo size for smartphones */
+  }
+  .footer-text {
+    font-size: 8px;
+    bottom: -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller smartphone adjustments */
+  .container {
+    top: calc(50% - 75px);
+    left: calc(50% - 150px);
+    transform: scale(1); /* Reduce scaling further for smaller screens */
+    width: 300px;
+    height: 150px;
+  }
+  .circle, .rectangle {
+    transform: scale(0.6); /* Resize circles and rectangles for smallest screens */
+  }
+  #sign {
+    top: 30px;
+    left: 70px;
+    transform: scale(0.5); /* Adjust sign size */
+  }
+  .footer-text {
+    font-size: 7px;
+    bottom: -10px;
+  }
 }
