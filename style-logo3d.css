@@ -52,8 +52,6 @@ a.symbol:hover {
 
 @media ( max-width : 600px ) {
 .container {
-Only apply the CSS code below when screen width
-is between 0px - 750px.
 width : 350px ;
 }
 }
