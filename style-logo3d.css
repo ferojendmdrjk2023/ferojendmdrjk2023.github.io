@@ -376,25 +376,17 @@ a.symbol:hover {
 /* Responsive layout adjustments */
 @media (max-width: 1024px) {
   .container {
-    top: calc(50% - 150px);
-    left: calc(50% - 250px); /* Adjust based on container width */
-    transform: scale(1.5); /* Reduce scaling for tablets */
-    width: 500px;
-    height: 250px;
-  }
-  .circle, .rectangle {
-    transform: scale(0.9); /* Adjust size for tablet view */
-  }
-  #sign {
-    top: 100px;
-    left: 150px;
-    transform: scale(0.7); /* Adjust logo size */
-  }
-  .footer-text {
-    font-size: 9px;
-    bottom: -20px; 
-  }
+  position: relative;
+  top: calc(50% - 175px);
+  left: calc(50% - 347.5px); /* Center horizontally, based on the width of 695px */
+  transform: scale(2.2); /* Vertically center and scale the group */
+  width: 695px;
+  height: 350px;
+  transform-origin: center;
+  display: grid;
 }
+ 
+
 
 @media (max-width: 1024px) {
   .container {
@@ -404,12 +396,12 @@ a.symbol:hover {
 
 @media (max-width: 768px) {
   .container {
-    transform: scale(1.2); /* Scale down further for smartphones */
+    transform: scale(1); /* Scale down further for smartphones */
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    transform: scale(1); /* Default size for small screens */
+    transform: scale(0.75); /* Default size for small screens */
   }
 }
