@@ -1,0 +1,4 @@
+How To compile scss to css:
+https://www.youtube.com/watch?v=ztEY-uber4U&t=1896s 
+
+code: npm run compile
