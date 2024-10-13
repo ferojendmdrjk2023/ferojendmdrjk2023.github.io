@@ -1,0 +1,412 @@
+
+// colors 
+$skyblue-color: #d7e1f2;
+$darkblue-color:#335a9e; 
+$shadow-color1: rgba(30, 80, 150, 0.75);
+$shadow-color2: rgba(0, 50, 150, 0.75);
+$bg-top-color: #e0eaff;
+$bg-center-color: #ccdcff;
+$bg-bottom-color: #b3cbff;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    $bg-top-color 0%,
+    $bg-center-color 50%,
+    $bg-bottom-color 80%
+  );  
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  left: calc(50% - 347.5px); /* Center horizontally, based on the width of 695px */
+  transform: translateY(-50%) scale(1.5); /* Vertically center and scale the group */
+  width: 695px; 
+  transform-origin: center; 
+  z-index: 100;
+}
+
+#circle1 {
+    width: 100px;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+    display: grid;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg, 
+      $skyblue-color 20%,
+      darken($skyblue-color, 15%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color1 inset;
+    position: absolute;
+    animation: bounce 2.5s ease-in-out forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate3d(0, -300px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0);
+  }
+  35% {
+    transform: translate3d(0, -150px, 0);
+  }
+  55% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  70% {
+    transform: translate3d(0, -75px, 0);
+  }
+  
+  85% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  95% {
+    transform: translate3d(0, -15px, 0);
+  }
+  
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+$size: 50px;
+ #top1 {
+    height: $size;
+    width: $size * 2;
+    top: 100px;
+    position: absolute;
+    border-top-left-radius: $size * 2;
+    border-top-right-radius: $size * 2;
+    background: linear-gradient(
+      150deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 15%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+  }
+
+  #rectangle1 {
+    width: 50px;
+    height: 200px;
+    top: 150px;
+    left: 50px;
+    position: relative;
+    background: linear-gradient(
+     90deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 60%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+    position: absolute;
+  }
+  
+  #rectangle2 {
+    width: 170px;
+    height: 50px;
+    background: darkblue;
+    left: 50px;
+    top: -50px;
+    position: absolute;
+    background: linear-gradient(
+      175deg,  
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+  }
+  
+  #rectangle3 {
+    width: 50px;
+    height: 150px;
+    top: 50px;
+    position: absolute;
+    background: linear-gradient(
+      -90deg, 
+      $skyblue-color 50%,
+      darken($skyblue-color, 10%) 85%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color1 inset;
+  }
+
+#circle2 {
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(
+      45deg, 
+      // $darkblue-color 0%, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 25%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+    top: 13px;
+    left: 50px;
+    position: absolute;
+  }
+
+#rectangle4 {
+    width: 170px;
+    height: 75px;
+    bottom: -50px;
+    position: absolute;
+    background: linear-gradient(
+      10deg,  
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+  }
+  
+  #rectangle5 {
+    width: 50px;
+    height: 200px;
+    bottom: 0;
+    left: 170px;
+    position: absolute; 
+    background: linear-gradient(
+     90deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 60%
+    );
+
+  }
+  
+  #top2 {
+    height: $size;
+    width: $size * 2;
+    border-top-left-radius: $size * 2;
+    border-top-right-radius: $size * 2;
+    left: 0;
+    top: -50px;
+    position: absolute;
+    background: linear-gradient(
+      150deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 15%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+  }
+  
+  #rectangle6 {
+    width: 50px;
+    height: 200px;
+    bottom: 0;
+    left: 50px;
+    position: absolute;
+    background: linear-gradient(
+      -90deg, 
+      $skyblue-color 50%,
+      darken($skyblue-color, 10%) 85%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color1 inset;
+  }
+  
+  #rectangle7 {
+    width: 75px;
+    height: 50px;
+    left: 50px;
+    top: 150px;
+    position: absolute;
+    background: linear-gradient(
+      -90deg, 
+      $skyblue-color 50%,
+      darken($skyblue-color, 10%) 85%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color1 inset;
+
+  }
+  
+  #rectangle8 {
+    width: 75px;
+    height: 200px;
+    left: 0;
+    bottom: 50px;
+    position: absolute;
+    background: linear-gradient(
+     90deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 60%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+  
+  #circle3 {
+    width: 100px;
+    height: 100px;
+    background: darkblue;
+    border-radius: 50%;
+    top: -100px;
+    left: -13px;
+    position: absolute;
+    background: linear-gradient(
+      135deg, 
+      $skyblue-color 20%,
+      darken($skyblue-color, 15%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color1 inset;
+    animation: bounce 2.25s ease-in-out forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate3d(0, -300px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0);
+  }
+  35% {
+    transform: translate3d(0, -200px, 0);
+  }
+  55% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  70% {
+    transform: translate3d(0, -100px, 0);
+  }
+  
+  85% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  95% {
+    transform: translate3d(0, -20px, 0);
+  }
+  
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+#rectangle9 {
+  width: 150px;
+  height: 50px;
+  background: lightblue;
+  left: 75px;
+  top: 0px;
+  position: absolute;
+  background: linear-gradient(
+      175deg,  
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+
+#rectangle10 {
+  width: 50px;
+  height: 200px;
+  background: darkblue;
+  left: 50px;
+  top: 50px;
+  position: absolute;
+  background: linear-gradient(
+     90deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 60%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+
+#rectangle11 {
+  width: 100px;
+  height: 50px;
+  background: lightblue;
+  left: 100px;
+  top: 0px;
+  position: absolute;
+  background: linear-gradient(
+      175deg,  
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+
+#circle4 {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  border-radius: 50%;
+  top: 100px;
+  left: 50px;
+  position: absolute;
+  background: linear-gradient(
+      45deg, 
+      // $darkblue-color 0%, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 25%) 90%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+
+#rectangle12 {
+  width: 50px;
+  height: 150px;
+  background: darkblue;
+  left: 50px;
+  top: 50px;
+  position: absolute;
+  background: linear-gradient(
+     90deg, 
+      $darkblue-color 20%,
+      darken($skyblue-color, 20%) 60%
+    );
+    box-shadow: 0 0 12vmin 0 $shadow-color2 inset;
+}
+
+.shadow {
+  &-1 {
+    width: 700px;
+    height: 20px;
+    background: $shadow-color1;
+    border-radius: 50%;
+    top: -600px;
+    left: 200px;
+    filter: drop-shadow(0 4vmin 3.5vmin $shadow-color1);
+
+    &::before {
+      width: 700px;
+      height: 20px;
+      background: $shadow-color1;
+      border-radius: 50%;
+      transform: rotate(-22deg);
+      box-shadow: 0 0 4vmin 2vmin $shadow-color1;
+      left: -600px;
+      top: 200px;
+    }
+
+    &::after {
+      width: 800vmin;
+      height: 0vmin;
+      box-shadow: 0 0 6.5vmin 1vmin $shadow-color1;
+      left: 26vmin;
+      top: 1vmin;
+    }
+  }
+
+  &-2 {
+    width: 700vmin;
+    height: 20;
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    box-shadow: 0 0 8vmin 2vmin $shadow-color1,
+    5vmin 0 8vmin 1.5vmin $shadow-color1;
+    top: 36vmin;
+    left: 11vmin;
+  }
+}
+
+
