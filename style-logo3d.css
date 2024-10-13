@@ -385,23 +385,42 @@ a.symbol:hover {
   transform-origin: center;
   display: grid;
 }
+
+  
  
 
 
 @media (max-width: 1024px) {
   .container {
-    transform: scale(1.5); /* Scale down for tablet screens */
+    transform: scale(1.5);
+     transform-origin: center;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    transform: scale(1); /* Scale down further for smartphones */
+    transform: scale(1);
+     transform-origin: center;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    transform: scale(0.75); /* Default size for small screens */
+    transform: scale(0.5);
+     transform-origin: center;
   }
+
+  .sosmed-cont {
+  position: relative;
+  bottom: 0; /* Adjust the positioning for responsiveness */
+  width: 70%;
+  display: flex;
+  /* justify-content: left; */
+}
+
+.footer-text {
+  font-size: 5px;
+  bottom: -15px;   
+  position: relative;
+}
 }
