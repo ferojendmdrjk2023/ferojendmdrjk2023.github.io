@@ -131,10 +131,6 @@ body {
     color: #5C4A1D;
 }
 
-.navbar a.active {
-    color: white !important;
-    font-weight: bold;
-}
 
 .lyric-card {
     position: fixed;
