@@ -17,7 +17,7 @@ class GeoManager {
     }
 
     initMap() {
-        const mapContainer = document.getElementById("map");
+        let mapContainer = document.getElementById("map");
     
         // Check if the map container is rendered properly
         if (!mapContainer || mapContainer.offsetWidth === 0 || mapContainer.offsetHeight === 0) {
@@ -38,8 +38,8 @@ class GeoManager {
     
         // Add markers for dummy users
         this.dummyUsers.forEach((user) => {
-            const markerColor = user.is_online ? "red" : "grey";
-            const marker = L.circleMarker([user.latitude, user.longitude], {
+            let markerColor = user.is_online ? "red" : "grey";
+            let marker = L.circleMarker([user.latitude, user.longitude], {
                 color: markerColor,
                 radius: 10,
             }).addTo(this.map);
@@ -70,7 +70,7 @@ class GeoManager {
     getUserLocation() {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                const { latitude, longitude } = position.coords;
+                let { latitude, longitude } = position.coords;
                 L.marker([latitude, longitude])
                     .addTo(this.map)
                     .bindPopup("This is your location!")
@@ -82,7 +82,7 @@ class GeoManager {
                 )}, LNG: ${longitude.toFixed(5)}`;
             },
             (error) => {
-                const errorMessages = {
+                let errorMessages = {
                     1: "Permission denied. Please allow location access.",
                     2: "Position unavailable. Check your network or GPS settings.",
                     3: "Request timed out. Try again.",
@@ -94,9 +94,9 @@ class GeoManager {
 
     // Get a friend's location
     getFriendLocation() {
-        const activeFriends = this.dummyUsers.filter((user) => user.is_online && user.username !== "user1 entrance");
+        let activeFriends = this.dummyUsers.filter((user) => user.is_online && user.username !== "user1 entrance");
         if (activeFriends.length > 0) {
-            const randomFriend = activeFriends[Math.floor(Math.random() * activeFriends.length)];
+            let randomFriend = activeFriends[Math.floor(Math.random() * activeFriends.length)];
             this.map.setView([randomFriend.latitude, randomFriend.longitude], 15);
             document.getElementById("friend-coordinates").textContent = `${randomFriend.username}, LAT: ${randomFriend.latitude.toFixed(
                 5
@@ -120,21 +120,21 @@ class GeoManager {
     // Show the bracelet modal
    // Show the bracelet modal
 showBraceletModal() {
-    const modal = document.getElementById("bracelet-modal");
-    const imageElement = document.getElementById("bracelet-image");
+    let modal = document.getElementById("bracelet-modal");
+    let imageElement = document.getElementById("bracelet-image");
     imageElement.src = "media/bracellet.jpg"; // Set the correct image path
     modal.style.display = "flex";
 }
 
 // Show the warning modal
 showWarningModal(message) {
-    const warningModal = document.getElementById("warning-modal");
-    const warningMessage = document.getElementById("warning-message");
+    let warningModal = document.getElementById("warning-modal");
+    let warningMessage = document.getElementById("warning-message");
     warningMessage.innerText = message;
     warningModal.style.display = "flex";
 
     // Close the modal on button click
-    const closeBtn = document.getElementById("warning-close-btn");
+    let closeBtn = document.getElementById("warning-close-btn");
     closeBtn.addEventListener("click", () => {
         warningModal.style.display = "none";
     });
@@ -142,19 +142,19 @@ showWarningModal(message) {
 
 // Initialize modal event listeners
 initModalEventListeners() {
-    const modal = document.getElementById("bracelet-modal");
-    const confirmBtn = document.getElementById("confirm-send-btn");
-    const cancelBtn = document.getElementById("cancel-send-btn");
-    const responseModal = document.getElementById("response-modal");
-    const responseMessage = document.getElementById("response-message");
-    const closeResponseBtn = document.getElementById("close-response-btn");
+    let modal = document.getElementById("bracelet-modal");
+    let confirmBtn = document.getElementById("confirm-send-btn");
+    let cancelBtn = document.getElementById("cancel-send-btn");
+    let responseModal = document.getElementById("response-modal");
+    let responseMessage = document.getElementById("response-message");
+    let closeResponseBtn = document.getElementById("close-response-btn");
 
     // Handle bracelet confirmation
     confirmBtn.addEventListener("click", () => {
         modal.style.display = "none";
 
         // Assuming bracelet sending logic
-        const braceletSent = true; // Simulate success or failure
+        let braceletSent = true; // Simulate success or failure
 
         if (braceletSent) {
             responseMessage.innerText = "Bracelet sent successfully!";
@@ -181,7 +181,7 @@ initModalEventListeners() {
 
     // Show the Meet Page
     showMeetPage() {
-        const meetContainer = document.getElementById("meet-container");
+        let meetContainer = document.getElementById("meet-container");
         meetContainer.style.display = "block";
 
         // Ensure the map resizes properly
@@ -194,5 +194,5 @@ initModalEventListeners() {
 }
 
 // Instantiate the GeoManager to link to app.js
-const geoManager = new GeoManager();
+let geoManager = new GeoManager();
 window.geoManager = geoManager; // Make globally accessible
