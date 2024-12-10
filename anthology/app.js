@@ -1,7 +1,7 @@
 // Class 1: handshake with Spotify
 class SpotifyAuth {
     constructor() {
-       this.clientId = 'f3907983afa34754a63b4a556626b6a1';
+        this.clientId = 'f3907983afa34754a63b4a556626b6a1';
         this.clientSecret = '06029c14fa444bac982fa48a020c5c01';
         this.token = null;
     }
@@ -58,15 +58,15 @@ class SpotifyApp {
 
     
     setupNavigation() {
-        const trackCard = document.getElementById('track-card');
-        const albumContainer = document.getElementById('album-container');
-        const lyricCard = document.getElementById('lyric-card');
-        const meetContainer = document.getElementById('meet-container');
-        const profileContainer = document.getElementById('profile-container');
-        const navbar = document.querySelector('.navbar');
-        const searchBar = document.querySelector('.search-bar-container'); 
+        let trackCard = document.getElementById('track-card');
+        let albumContainer = document.getElementById('album-container');
+        let lyricCard = document.getElementById('lyric-card');
+        let meetContainer = document.getElementById('meet-container');
+        let profileContainer = document.getElementById('profile-container');
+        let navbar = document.querySelector('.navbar');
+        let searchBar = document.querySelector('.search-bar-container'); 
     
-        const hideAllSections = () => {
+        let hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
             lyricCard.style.display = 'none';
@@ -166,10 +166,10 @@ class searchQuery {
     }
 
     handleSearch() {
-        const searchBox = document.getElementById('search-input'); 
-        const searchedTrack = searchBox.value.trim().toLowerCase(); 
-        const trackCard = document.getElementById('track-card'); 
-        const albumContainer = document.getElementById('album-container'); 
+        let searchBox = document.getElementById('search-input'); 
+        let searchedTrack = searchBox.value.trim().toLowerCase(); 
+        let trackCard = document.getElementById('track-card'); 
+        let albumContainer = document.getElementById('album-container'); 
 
         if (searchedTrack) {
             app.searchArtist('Taylor Swift', (artistId) => {
@@ -188,7 +188,7 @@ class searchQuery {
                                 pending--;
 
                                 if (pending === 0) {
-                                    const matchingTracks = allTracks.filter((track) =>
+                                    let matchingTracks = allTracks.filter((track) =>
                                         track.name.toLowerCase().includes(searchedTrack)
                                     );
 
@@ -232,8 +232,8 @@ class AlbumManager {
         let albumContainer = document.getElementById('album-container');
         albumContainer.innerHTML = ''; // Clear previous content
 
-        const filteredAlbums = albums.filter((album) => {
-            const name = album.name.toLowerCase();
+        let filteredAlbums = albums.filter((album) => {
+            let name = album.name.toLowerCase();
             return !(
                 name.includes('live') ||
                 name.includes('remix') ||
@@ -341,14 +341,14 @@ class TrackManager {
         fetch('songs.xml')
             .then((response) => response.text())
             .then((xmlString) => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
-                const trackElements = xmlDoc.getElementsByTagName('track');
+                let parser = new DOMParser();
+                let xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                let trackElements = xmlDoc.getElementsByTagName('track');
 
                 for (let track of trackElements) {
-                    const trackIdElement = track.getElementsByTagName('track_id')[0];
+                    let trackIdElement = track.getElementsByTagName('track_id')[0];
                     if (trackIdElement && trackIdElement.textContent === trackId) {
-                        const imageUrl = track.getElementsByTagName('lyric_content')[0]?.textContent;
+                        let imageUrl = track.getElementsByTagName('lyric_content')[0]?.textContent;
                         this.displayLyrics(imageUrl, trackId);
                         return;
                     }
@@ -361,24 +361,24 @@ class TrackManager {
     displayLyrics(imageUrl, trackId) {
         this.stopAudio();
 
-        const lyricContainer = document.getElementById('lyric-card');
+        let lyricContainer = document.getElementById('lyric-card');
         lyricContainer.innerHTML = imageUrl
             ? `<img src="${imageUrl}" style="width: 100%">`
             : '<p>Lyric and Chord are in progress.</p>';
         lyricContainer.style.display = 'block';
         document.getElementById('track-card').style.display = 'none';
 
-        const controls = document.createElement('div');
+        let controls = document.createElement('div');
         controls.classList.add('lyric-controls');
 
-        const playButton = document.createElement('button');
+        let playButton = document.createElement('button');
         playButton.id = 'btn';
         playButton.textContent = 'Play Song';
         playButton.onclick = () => {
             this.playAudioTrack(trackId, 'lyric-card');
         };
 
-        const stopButton = document.createElement('button');
+        let stopButton = document.createElement('button');
         stopButton.id = 'btn';
         stopButton.textContent = 'Stop Song';
         stopButton.onclick = () => {
@@ -395,14 +395,14 @@ class TrackManager {
         fetch('songs.xml')
             .then((response) => response.text())
             .then((xmlString) => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
-                const trackElements = xmlDoc.getElementsByTagName('track');
+                let parser = new DOMParser();
+                let xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                let trackElements = xmlDoc.getElementsByTagName('track');
 
                 for (let track of trackElements) {
-                    const trackIdElement = track.getElementsByTagName('track_id')[0];
+                    let trackIdElement = track.getElementsByTagName('track_id')[0];
                     if (trackIdElement && trackIdElement.textContent === trackId) {
-                        const audioPath = track.getElementsByTagName('audiotrack')[0]?.textContent;
+                        let audioPath = track.getElementsByTagName('audiotrack')[0]?.textContent;
                         if (audioPath) {
                             this.playAudio(audioPath);
                         } else {
@@ -439,10 +439,10 @@ class TrackManager {
     }
 
     displayErrorMessage(message, containerId = 'track-card') {
-        const container = document.getElementById(containerId);
+        let container = document.getElementById(containerId);
         if (!container) return;
 
-        const errorContainer = document.createElement('div');
+        let errorContainer = document.createElement('div');
         errorContainer.classList.add('error-popup');
         errorContainer.textContent = message;
 
@@ -450,11 +450,11 @@ class TrackManager {
 
         setTimeout(() => {
             errorContainer.remove();
-        }, 1000);
+        }, 3000);
     }
 
     setupNavbarListeners() {
-        const navbarButtons = document.querySelectorAll('.navbar button');
+        let navbarButtons = document.querySelectorAll('.navbar button');
         navbarButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 this.stopAudio();
@@ -475,6 +475,6 @@ if ('serviceWorker' in navigator) {
 
 
 // Instantiate and initialize the app
-const app = new SpotifyApp();
+let app = new SpotifyApp();
 app.init();
 
