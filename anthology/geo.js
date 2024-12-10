@@ -118,49 +118,66 @@ class GeoManager {
     }
 
     // Show the bracelet modal
-    showBraceletModal() {
-        const modal = document.getElementById("bracelet-modal");
-        const imageElement = document.getElementById("bracelet-image");
-        imageElement.src = "media/bracellet.jpg"; // Set the correct image path
-        modal.style.display = "flex";
-    }
+   // Show the bracelet modal
+showBraceletModal() {
+    const modal = document.getElementById("bracelet-modal");
+    const imageElement = document.getElementById("bracelet-image");
+    imageElement.src = "media/bracellet.jpg"; // Set the correct image path
+    modal.style.display = "flex";
+}
 
-    // Show the warning modal
-    showWarningModal(message) {
-        const warningModal = document.getElementById("warning-modal");
-        const warningMessage = document.getElementById("warning-message");
-        warningMessage.innerText = message;
-        warningModal.style.display = "flex";
+// Show the warning modal
+showWarningModal(message) {
+    const warningModal = document.getElementById("warning-modal");
+    const warningMessage = document.getElementById("warning-message");
+    warningMessage.innerText = message;
+    warningModal.style.display = "flex";
 
-        // to close the modal
-        document.getElementById("warning-close-btn").addEventListener("click", () => {
-            warningModal.style.display = "none";
-        });
-    }
+    // Close the modal on button click
+    const closeBtn = document.getElementById("warning-close-btn");
+    closeBtn.addEventListener("click", () => {
+        warningModal.style.display = "none";
+    });
+}
 
-    // Initialize modal event listeners
-    initModalEventListeners() {
-        const modal = document.getElementById("bracelet-modal");
-        const confirmBtn = document.getElementById("confirm-send-btn");
-        const cancelBtn = document.getElementById("cancel-send-btn");
-        const responseModal = document.getElementById("response-modal");
-        const responseMessage = document.getElementById("response-message");
-        const closeResponseBtn = document.getElementById("close-response-btn");
+// Initialize modal event listeners
+initModalEventListeners() {
+    const modal = document.getElementById("bracelet-modal");
+    const confirmBtn = document.getElementById("confirm-send-btn");
+    const cancelBtn = document.getElementById("cancel-send-btn");
+    const responseModal = document.getElementById("response-modal");
+    const responseMessage = document.getElementById("response-message");
+    const closeResponseBtn = document.getElementById("close-response-btn");
 
-        confirmBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-            responseMessage.innerText = videoPopup ? "Bracelet sent successfully!" : "Failed to send bracelet.";
+    // Handle bracelet confirmation
+    confirmBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+
+        // Assuming bracelet sending logic
+        const braceletSent = true; // Simulate success or failure
+
+        if (braceletSent) {
+            responseMessage.innerText = "Bracelet sent successfully!";
             responseModal.style.display = "flex";
-        });
 
-        cancelBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
+         
+        } else {
+            responseMessage.innerText = "Failed to send bracelet.";
+            responseModal.style.display = "flex";
+        }
+    });
 
-        closeResponseBtn.addEventListener("click", () => {
-            responseModal.style.display = "none";
-        });
-    }
+    // Handle bracelet cancel
+    cancelBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close response modal
+    closeResponseBtn.addEventListener("click", () => {
+        responseModal.style.display = "none";
+    });
+}
+
 
     // Show the Meet Page
     showMeetPage() {
