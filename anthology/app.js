@@ -1,8 +1,8 @@
 // Class 1: handshake with Spotify
 class SpotifyAuth {
     constructor() {
-        this.clientId = '0c2a546b20e44c768140cc04e1b78b3b';
-        this.clientSecret = '693050025139429ea496f805c189b94d';
+       this.clientId = 'f3907983afa34754a63b4a556626b6a1';
+        this.clientSecret = '06029c14fa444bac982fa48a020c5c01';
         this.token = null;
     }
 
