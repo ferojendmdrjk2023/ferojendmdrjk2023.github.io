@@ -57,6 +57,34 @@ class SpotifyApp {
 
 
     
+class SpotifyApp {
+    constructor() {
+        this.auth = new SpotifyAuth();
+        this.token = null;
+        this.albumManager = null;
+        this.trackManager = null;
+        this.searchQuery = null;
+    }
+
+    init() {
+        this.auth.loadToken((token) => {
+            this.token = token;
+            this.albumManager = new AlbumManager(this.token);
+            this.trackManager = new TrackManager(this.token);
+            this.searchQuery = new searchQuery(this.token);
+
+            this.searchArtist('Taylor Swift', (artistId) => {
+                if (artistId) {
+                    this.albumManager.getAlbums(artistId, (albums) => {
+                        this.albumManager.displayAlbums(albums);
+                    });
+                }
+            });
+
+            this.setupNavigation();
+        });
+    }
+
     setupNavigation() {
         let trackCard = document.getElementById('track-card');
         let albumContainer = document.getElementById('album-container');
@@ -65,7 +93,7 @@ class SpotifyApp {
         let profileContainer = document.getElementById('profile-container');
         let navbar = document.querySelector('.navbar');
         let searchBar = document.querySelector('.search-bar-container'); 
-    
+
         let hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
@@ -73,53 +101,70 @@ class SpotifyApp {
             meetContainer.style.display = 'none';
             profileContainer.style.display = 'none';
         };
-    
-        navbar.style.display = 'flex'; // Ensure navbar is always visible
-        searchBar.style.display = 'flex'; // Ensure search bar is always visible
-    
+
+        navbar.style.display = 'flex';
+        searchBar.style.display = 'flex';
+
+        const setActiveButton = (buttonId) => {
+            const allNavButtons = document.querySelectorAll('.navbar a');
+            allNavButtons.forEach((btn) => {
+                btn.classList.remove('active');
+                btn.style.color = '';
+            });
+
+            const activeButton = document.getElementById(buttonId);
+            activeButton.classList.add('active');
+            activeButton.style.color = 'white';
+        };
+
         document.getElementById('main-home').addEventListener('click', () => {
             hideAllSections();
             albumContainer.style.display = 'flex';
+            setActiveButton('main-home');
         });
-    
+
         document.getElementById('song').addEventListener('click', () => {
             hideAllSections();
             this.actionSongButtonClick();
             trackCard.style.display = 'block';
+            setActiveButton('song');
         });
-    
+
         document.getElementById('meet').addEventListener('click', () => {
             hideAllSections();
             meetContainer.style.display = 'block';
+            setActiveButton('meet');
         });
-    
+
         document.getElementById('profile').addEventListener('click', () => {
             hideAllSections();
             profileContainer.style.display = 'block';
+            setActiveButton('profile');
         });
-    
+
         document.getElementById('lyric-home').addEventListener('click', () => {
             hideAllSections();
             trackCard.style.display = 'block';
+            setActiveButton('lyric-home');
         });
-    
+
         document.getElementById('lyric-song').addEventListener('click', () => {
             hideAllSections();
             lyricCard.style.display = 'none';
             trackCard.style.display = 'block';
+            setActiveButton('lyric-song');
         });
-    
+
         document.getElementById('track-home').addEventListener('click', () => {
             hideAllSections();
             albumContainer.style.display = 'flex';
+            setActiveButton('track-home');
         });
 
         document.getElementById('search-icon').addEventListener('click', () => {
             app.searchQuery.handleSearch();
         });
-        
     }
-    
 
     searchArtist(artistName, callback) {
         fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
@@ -129,6 +174,8 @@ class SpotifyApp {
             .then((data) => callback(data.artists.items[0]?.id || null))
             .catch((err) => console.error('Error searching artist:', err));
     }
+}
+
 
     actionSongButtonClick() {
         this.searchArtist('Taylor Swift', (artistId) => {
