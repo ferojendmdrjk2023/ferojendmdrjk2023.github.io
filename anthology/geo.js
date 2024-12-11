@@ -117,8 +117,6 @@ class GeoManager {
         }
     }
 
-    // Show the bracelet modal
-   // Show the bracelet modal
 showBraceletModal() {
     let modal = document.getElementById("bracelet-modal");
     let imageElement = document.getElementById("bracelet-image");
