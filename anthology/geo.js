@@ -191,6 +191,6 @@ initModalEventListeners() {
     }
 }
 
-// Instantiate the GeoManager to link to app.js
+
 let geoManager = new GeoManager();
-window.geoManager = geoManager; // Make globally accessible
+window.geoManager = geoManager;
