@@ -1,8 +1,8 @@
 // Class 1: Token Management and Spotify Authentication
 class SpotifyAuth {
     constructor() {
-        this.clientId = 'c5590ef700ad4cc49456e23e65c10069';
-        this.clientSecret = 'a46999b27a804ac09c99406b1b21cada';
+        this.clientId = 'bf92c1bb9b604b4c9d11e7008b5345a9';
+        this.clientSecret = '4cc45d1fc19b454d883ce10ddd257211';
         this.token = null;
     }
 
@@ -57,15 +57,15 @@ class SpotifyApp {
     }
 
     setupNavigation() {
-        const trackCard = document.getElementById('track-card');
-        const albumContainer = document.getElementById('album-container');
-        const lyricCard = document.getElementById('lyric-card');
-        const meetContainer = document.getElementById('meet-container');
-        const profileContainer = document.getElementById('profile-container');
-        const navbar = document.querySelector('.navbar');
-        const searchBar = document.querySelector('.search-bar-container');
+        let trackCard = document.getElementById('track-card');
+        let albumContainer = document.getElementById('album-container');
+        let lyricCard = document.getElementById('lyric-card');
+        let meetContainer = document.getElementById('meet-container');
+        let profileContainer = document.getElementById('profile-container');
+        let navbar = document.querySelector('.navbar');
+        let searchBar = document.querySelector('.search-bar-container');
 
-        const hideAllSections = () => {
+        let hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
             lyricCard.style.display = 'none';
@@ -76,7 +76,7 @@ class SpotifyApp {
         navbar.style.display = 'flex';
         searchBar.style.display = 'flex';
 
-        const clearActiveClass = () => {
+        let clearActiveClass = () => {
             const buttons = navbar.querySelectorAll('button');
             buttons.forEach((button) => {
                 button.classList.remove('active');
@@ -84,7 +84,7 @@ class SpotifyApp {
             });
         };
 
-        const setActiveButton = (button) => {
+        let setActiveButton = (button) => {
             clearActiveClass();
             button.classList.add('active');
             button.style.color = 'white';
@@ -139,24 +139,24 @@ class SpotifyApp {
         });
     }
 
-    handleIOSKeyboardIssues() {
-        const searchBox = document.getElementById('search-input');
+    // handleIOSKeyboardIssues() {
+    //     let searchBox = document.getElementById('search-input');
 
-        if (this.isIOSDevice()) {
-            searchBox.setAttribute('readonly', true);
+    //     if (this.isIOSDevice()) {
+    //         searchBox.setAttribute('readonly', true);
 
-            searchBox.addEventListener('touchstart', () => {
-                searchBox.removeAttribute('readonly');
-                searchBox.focus();
-            });
-        }
-    }
+    //         searchBox.addEventListener('touchstart', () => {
+    //             searchBox.removeAttribute('readonly');
+    //             searchBox.focus();
+    //         });
+    //     }
+    // }
 
-    isIOSDevice() {
-        const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-        const isStandalone = window.navigator.standalone === true;
-        return isIOS || isStandalone;
-    }
+    // isIOSDevice() {
+    //     let isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    //     let isStandalone = window.navigator.standalone === true;
+    //     return isIOS || isStandalone;
+    // }
 
     searchArtist(artistName, callback) {
         fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
