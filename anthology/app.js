@@ -137,13 +137,31 @@ class SpotifyApp {
             app.searchManager.handleSearch();
         });
 
-        let searchBox = document.getElementById('search-input');
-        searchBox.addEventListener('click', () => {
+      document.addEventListener('DOMContentLoaded', () => {
+    const searchBox = document.getElementById('search-input');
+
+    // Add event listeners to ensure keyboard pops up
+    searchBox.addEventListener('click', () => {
+        setTimeout(() => {
             searchBox.focus();
-        });
-        searchBox.addEventListener('touchstart', () => {
+        }, 100); // Small delay to ensure proper focus
+    });
+
+    searchBox.addEventListener('touchstart', () => {
+        setTimeout(() => {
             searchBox.focus();
+        }, 100);
+    });
+
+    // iOS-specific workaround to enable keyboard
+    if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+        searchBox.setAttribute('readonly', true);
+        searchBox.addEventListener('focus', () => {
+            searchBox.removeAttribute('readonly');
         });
+    }
+});
+
     }
 
     searchArtist(artistName, callback) {
