@@ -325,7 +325,7 @@ class TrackManager {
         document.getElementById('album-container').style.display = 'none';
     
         tracks.forEach((track) => {
-            console.log(`Track ID: ${track.id}, Track Name: ${track.name}`); // Log the ID and name
+            console.log(`Track ID: ${track.id}, Track Name: ${track.name}`); 
     
             let trackItem = document.createElement('div');
             trackItem.classList.add('track-item');
