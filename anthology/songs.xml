@@ -25,7 +25,6 @@
         <lyric_content>lyricsimage/coldasyou.jpg</lyric_content>
         <audiotrack>audiotracks/lastkisstv.mp3</audiotrack>
     </track>
-
      <track>
         <track_id>4XMP3zVxrnr58T0tjIHvpR</track_id>
         <lyric_content>lyricsimage/alltoowell.jpg</lyric_content>
@@ -40,6 +39,16 @@
         <track_id>00vJzaoxM3Eja1doBUhX0P</track_id>
         <lyric_content>lyricsimage/alltoowell.jpg</lyric_content>
         <audiotrack>audiotracks/alltoowell.mp3</audiotrack>
+    </track>
+     <track>
+        <track_id>1u4HUiREUR6vX1W1RYG2Tm</track_id>
+        <lyric_content>lyricsimage/alltoowell.jpg</lyric_content>
+        <audiotrack>audiotracks/alltoowell10mintv.mp3</audiotrack>
+    </track>
+       <track>
+        <track_id>1u4HUiREUR6vX1W1RYG2Tm</track_id>
+        <lyric_content>lyricsimage/alltoowell.jpg</lyric_content>
+        <audiotrack>audiotracks/alltoowell10mintvlps.mp3</audiotrack>
     </track>
       <track>
         <track_id>4e3ZNTAV6PCrdYMUrUlMpQ/track_id</track_id>
