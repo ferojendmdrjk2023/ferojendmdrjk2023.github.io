@@ -52,19 +52,20 @@ class SpotifyApp {
             });
 
             this.setupNavigation();
+            this.handleIOSKeyboardIssues();
         });
     }
 
     setupNavigation() {
-        let trackCard = document.getElementById('track-card');
-        let albumContainer = document.getElementById('album-container');
-        let lyricCard = document.getElementById('lyric-card');
-        let meetContainer = document.getElementById('meet-container');
-        let profileContainer = document.getElementById('profile-container');
-        let navbar = document.querySelector('.navbar');
-        let searchBar = document.querySelector('.search-bar-container');
-        
-        let hideAllSections = () => {
+        const trackCard = document.getElementById('track-card');
+        const albumContainer = document.getElementById('album-container');
+        const lyricCard = document.getElementById('lyric-card');
+        const meetContainer = document.getElementById('meet-container');
+        const profileContainer = document.getElementById('profile-container');
+        const navbar = document.querySelector('.navbar');
+        const searchBar = document.querySelector('.search-bar-container');
+
+        const hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
             lyricCard.style.display = 'none';
@@ -75,18 +76,18 @@ class SpotifyApp {
         navbar.style.display = 'flex';
         searchBar.style.display = 'flex';
 
-        let clearActiveClass = () => {
-            let buttons = navbar.querySelectorAll('button');
-            buttons.forEach(button => {
+        const clearActiveClass = () => {
+            const buttons = navbar.querySelectorAll('button');
+            buttons.forEach((button) => {
                 button.classList.remove('active');
-                button.style.color = '#5C4A1D'; 
+                button.style.color = '#5C4A1D';
             });
         };
 
-        let setActiveButton = (button) => {
-            clearActiveClass(); 
-            button.classList.add('active'); 
-            button.style.color = 'white'; 
+        const setActiveButton = (button) => {
+            clearActiveClass();
+            button.classList.add('active');
+            button.style.color = 'white';
         };
 
         document.getElementById('main-home').addEventListener('click', () => {
@@ -136,21 +137,30 @@ class SpotifyApp {
         document.getElementById('search-icon').addEventListener('click', () => {
             app.searchManager.handleSearch();
         });
+    }
 
-    let searchBox = document.getElementById('search-input');
-        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    handleIOSKeyboardIssues() {
+        const searchBox = document.getElementById('search-input');
+
+        if (this.isIOSDevice()) {
             searchBox.setAttribute('readonly', true);
-        
+
             searchBox.addEventListener('touchstart', () => {
                 searchBox.removeAttribute('readonly');
                 searchBox.focus();
             });
-}
-}
+        }
+    }
+
+    isIOSDevice() {
+        const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        const isStandalone = window.navigator.standalone === true;
+        return isIOS || isStandalone;
+    }
 
     searchArtist(artistName, callback) {
         fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
-            headers: { Authorization: `Bearer ${this.token}` }
+            headers: { Authorization: `Bearer ${this.token}` },
         })
             .then((response) => response.json())
             .then((data) => callback(data.artists.items[0]?.id || null))
@@ -184,6 +194,7 @@ class SpotifyApp {
         });
     }
 }
+
 
 // Class 3: Query Function
 class SearchManager {
