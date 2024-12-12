@@ -76,7 +76,7 @@ class SpotifyApp {
         navbar.style.display = 'flex';
         searchBar.style.display = 'flex';
 
-        const clearActiveClass = () => {
+        let clearActiveClass = () => {
             const buttons = navbar.querySelectorAll('button');
             buttons.forEach((button) => {
                 button.classList.remove('active');
@@ -84,7 +84,7 @@ class SpotifyApp {
             });
         };
 
-        const setActiveButton = (button) => {
+        let setActiveButton = (button) => {
             clearActiveClass();
             button.classList.add('active');
             button.style.color = 'white';
@@ -139,24 +139,7 @@ class SpotifyApp {
         });
     }
 
-    // handleIOSKeyboardIssues() {
-    //     const searchBox = document.getElementById('search-input');
-
-    //     if (this.isIOSDevice()) {
-    //         searchBox.setAttribute('readonly', true);
-
-    //         searchBox.addEventListener('touchstart', () => {
-    //             searchBox.removeAttribute('readonly');
-    //             searchBox.focus();
-    //         });
-    //     }
-    // }
-
-    // isIOSDevice() {
-    //     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    //     const isStandalone = window.navigator.standalone === true;
-    //     return isIOS || isStandalone;
-    // }
+  
 
     searchArtist(artistName, callback) {
         fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
