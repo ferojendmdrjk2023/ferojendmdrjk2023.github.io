@@ -186,10 +186,10 @@ class SearchManager {
     }
 
     handleSearch() {
-        let searchBox = document.getElementById('search-input'); // Get the search input field
-        let searchedTrack = searchBox.value.trim().toLowerCase(); // Get the user's input and normalize it
-        let trackCard = document.getElementById('track-card'); // Track card container
-        let albumContainer = document.getElementById('album-container'); // Album container
+        let searchBox = document.getElementById('search-input');
+        let searchedTrack = searchBox.value.trim().toLowerCase(); 
+        let trackCard = document.getElementById('track-card');
+        let albumContainer = document.getElementById('album-container');
 
         if (searchedTrack) {
             app.searchArtist('Taylor Swift', (artistId) => {
@@ -220,7 +220,7 @@ class SearchManager {
                                         alert('No matching tracks found.');
                                     }
 
-                                    searchBox.value = ''; // Clear the search bar
+                                    searchBox.value = ''; // to clear the search bar
                                 }
                             });
                         });
