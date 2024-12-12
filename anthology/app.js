@@ -369,7 +369,7 @@ class TrackManager {
     
 
     fetchAndDisplayLyrics(trackId) {
-        fetch('anthology/songs.xml')
+        fetch('songs.xml')
             .then((response) => response.text())
             .then((xmlString) => {
                 let parser = new DOMParser();
@@ -423,7 +423,7 @@ class TrackManager {
     }
 
     playAudioTrack(trackId, errorContainerId = 'track-card') {
-        fetch('anthology/songs.xml')
+        fetch('songs.xml')
             .then((response) => response.text())
             .then((xmlString) => {
                 let parser = new DOMParser();
