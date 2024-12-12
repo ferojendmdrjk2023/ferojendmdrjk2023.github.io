@@ -153,7 +153,7 @@ class SpotifyApp {
         }, 100);
     });
 
-    // iOS-specific workaround to enable keyboard
+
     if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
         searchBox.setAttribute('readonly', true);
         searchBox.addEventListener('focus', () => {
