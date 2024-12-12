@@ -190,10 +190,10 @@ class SearchManager {
     }
 
     handleSearch() {
-        let searchBox = document.getElementById('search-input'); 
-        let searchedTrack = searchBox.value.trim().toLowerCase(); 
-        let trackCard = document.getElementById('track-card'); 
-        let albumContainer = document.getElementById('album-container');
+        let searchBox = document.getElementById('search-input'); // Get the search input field
+        let searchedTrack = searchBox.value.trim().toLowerCase(); // Get the user's input and normalize it
+        let trackCard = document.getElementById('track-card'); // Track card container
+        let albumContainer = document.getElementById('album-container'); // Album container
 
         if (searchedTrack) {
             app.searchArtist('Taylor Swift', (artistId) => {
@@ -514,4 +514,3 @@ if ('serviceWorker' in navigator) {
 // Instantiate and initialize the app
 let app = new SpotifyApp();
 app.init();
-
