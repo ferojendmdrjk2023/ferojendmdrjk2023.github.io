@@ -55,7 +55,6 @@ class SpotifyApp {
         });
     }
 
-    
     setupNavigation() {
         let trackCard = document.getElementById('track-card');
         let albumContainer = document.getElementById('album-container');
@@ -63,7 +62,7 @@ class SpotifyApp {
         let meetContainer = document.getElementById('meet-container');
         let profileContainer = document.getElementById('profile-container');
         let navbar = document.querySelector('.navbar');
-        let searchBar = document.querySelector('.search-bar-container'); // Search bar container
+        let searchBar = document.querySelector('.search-bar-container');
         
         let hideAllSections = () => {
             trackCard.style.display = 'none';
@@ -72,10 +71,10 @@ class SpotifyApp {
             meetContainer.style.display = 'none';
             profileContainer.style.display = 'none';
         };
-        
+
         navbar.style.display = 'flex';
         searchBar.style.display = 'flex';
-    
+
         let clearActiveClass = () => {
             let buttons = navbar.querySelectorAll('button');
             buttons.forEach(button => {
@@ -83,63 +82,62 @@ class SpotifyApp {
                 button.style.color = '#5C4A1D'; 
             });
         };
-    
+
         let setActiveButton = (button) => {
             clearActiveClass(); 
             button.classList.add('active'); 
             button.style.color = 'white'; 
         };
-    
+
         document.getElementById('main-home').addEventListener('click', () => {
             hideAllSections();
             albumContainer.style.display = 'flex';
-            setActiveButton(document.getElementById('main-home')); // Set the active button
+            setActiveButton(document.getElementById('main-home'));
         });
-    
+
         document.getElementById('song').addEventListener('click', () => {
             hideAllSections();
             this.actionSongButtonClick();
             trackCard.style.display = 'block';
-            setActiveButton(document.getElementById('song')); // Set the active button
+            setActiveButton(document.getElementById('song'));
         });
-    
+
         document.getElementById('meet').addEventListener('click', () => {
             hideAllSections();
             meetContainer.style.display = 'block';
-            setActiveButton(document.getElementById('meet')); // Set the active button
+            setActiveButton(document.getElementById('meet'));
         });
-    
+
         document.getElementById('profile').addEventListener('click', () => {
             hideAllSections();
             profileContainer.style.display = 'block';
-            setActiveButton(document.getElementById('profile')); // Set the active button
+            setActiveButton(document.getElementById('profile'));
         });
-    
+
         document.getElementById('lyric-home').addEventListener('click', () => {
             hideAllSections();
             trackCard.style.display = 'block';
-            setActiveButton(document.getElementById('lyric-home')); // Set the active button
+            setActiveButton(document.getElementById('lyric-home'));
         });
-    
+
         document.getElementById('lyric-song').addEventListener('click', () => {
             hideAllSections();
             lyricCard.style.display = 'none';
             trackCard.style.display = 'block';
-            setActiveButton(document.getElementById('lyric-song')); // Set the active button
+            setActiveButton(document.getElementById('lyric-song'));
         });
-    
+
         document.getElementById('track-home').addEventListener('click', () => {
             hideAllSections();
             albumContainer.style.display = 'flex';
-            setActiveButton(document.getElementById('track-home')); // Set the active button
+            setActiveButton(document.getElementById('track-home'));
         });
-    
+
         document.getElementById('search-icon').addEventListener('click', () => {
             app.searchManager.handleSearch();
         });
-    }
 
-     let searchBox = document.getElementById('search-input');
+        let searchBox = document.getElementById('search-input');
         searchBox.addEventListener('click', () => {
             searchBox.focus();
         });
@@ -147,7 +145,6 @@ class SpotifyApp {
             searchBox.focus();
         });
     }
-
 
     searchArtist(artistName, callback) {
         fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
