@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="manifest" href="anthology/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <title>Anthology - The TaySwift Lyric Make Easy<</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="anthology/service-worker.js"></script>
     <div class="container">
         <div class="search-bar-container">
             <i class="fa fa-search" id="search-icon"></i>
@@ -29,13 +28,13 @@
         <div class="album-container" id="album-container" style="display: flex;">
         </div>
     
-        <div class="track-card" id="track-card" style="display: none;">
+        <div class="track-card" id="track-card">
             <div class="navbar">
                 <button id="track-home">HOME</button>
             </div>
         </div>
     
-        <div class="lyric-card" id="lyric-card" style="display: none;">
+        <div class="lyric-card" id="lyric-card">
             <div class="navbar">
                 <button id="lyric-home">HOME</button>
                 <button id="lyric-song">SONG</button>
@@ -44,7 +43,7 @@
     </div>
    
 
-    <div id="meet-container" style="display: none;">
+    <div id="meet-container">
             <div id="map"></div>
         <div class="controls">
             <button id="get-location-btn">GET MY LOCATION</button>
@@ -56,56 +55,51 @@
     </div>
     
     
-
-        <!-- Bracelet Modal -->
-        <div id="bracelet-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <img id="bracelet-image" src="" alt="Bracelet Preview" class="modal-image">
-                <p>Send a bracelet friendship to another Swiftie?</p>
-                <div class="modal-buttons">
-                    <button id="confirm-send-btn">Yes</button>
-                    <button id="cancel-send-btn">No</button>
-                </div>
+    <div id="bracelet-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <img id="bracelet-image" src="" alt="Bracelet Preview" class="modal-image">
+            <p>Send a bracelet friendship to another Swiftie?</p>
+            <div class="modal-buttons">
+                <button id="confirm-send-btn">Yes</button>
+                <button id="cancel-send-btn">No</button>
             </div>
-        </div>
-
-        <!-- Response Modal -->
-        <div id="response-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <p id="response-message"></p>
-                <div class="modal-buttons">
-                    <button id="close-response-btn">Close</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Warning Modal -->
-        <div id="warning-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <p id="warning-message"></p>
-                <div class="modal-buttons">
-                    <button id="warning-close-btn">OK</button>
-                </div>
-            </div>
-        </div>
-
-    
-
-        <!-- Profile Section -->
-        <div id="profile-container" style="display: none;">
-            <form id="profile-form">
-                <label for="username">Name:</label>
-                <input type="text" id="username" name="username" placeholder="Your Name">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="******">
-                <label for="profile-picture">Profile Picture:</label>
-                <input type="file" id="profile-picture" name="profile-picture">
-                <button type="submit">Save Profile</button>
-            </form>
         </div>
     </div>
 
-    <script src="app.js"></script>
-    <script src="geo.js"></script>
+    <div id="response-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="response-message"></p>
+            <div class="modal-buttons">
+                <button id="close-response-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="warning-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="warning-message"></p>
+            <div class="modal-buttons">
+                <button id="warning-close-btn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<div id="profile-container" style="display: none;">
+    <form id="profile-form">
+         <label for="username">Name:</label>
+         <input type="text" id="username" name="username" placeholder="Your Name">
+         <label for="password">Password:</label>
+         <input type="password" id="password" name="password" placeholder="******">
+         <label for="profile-picture">Profile Picture:</label>
+         <input type="file" id="profile-picture" name="profile-picture">
+         <button type="submit">Save Profile</button>
+     </form>
+</div>
 </body>
 </html>
+
+    <script src="app.js"></script>
+    <script src="geo.js"></script>
+
