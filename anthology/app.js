@@ -57,15 +57,15 @@ class SpotifyApp {
     }
 
     setupNavigation() {
-        const trackCard = document.getElementById('track-card');
-        const albumContainer = document.getElementById('album-container');
-        const lyricCard = document.getElementById('lyric-card');
-        const meetContainer = document.getElementById('meet-container');
-        const profileContainer = document.getElementById('profile-container');
-        const navbar = document.querySelector('.navbar');
-        const searchBar = document.querySelector('.search-bar-container');
+        let trackCard = document.getElementById('track-card');
+        let albumContainer = document.getElementById('album-container');
+        let lyricCard = document.getElementById('lyric-card');
+        let meetContainer = document.getElementById('meet-container');
+        let profileContainer = document.getElementById('profile-container');
+        let navbar = document.querySelector('.navbar');
+        let searchBar = document.querySelector('.search-bar-container');
 
-        const hideAllSections = () => {
+        let hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
             lyricCard.style.display = 'none';
