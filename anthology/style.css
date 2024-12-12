@@ -50,7 +50,7 @@ body {
     border-radius: 5px;
     border-style: none;
     font-style: italic;
-   
+    cursor: pointer;
 }
 
 #search-icon {
@@ -60,7 +60,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    cursor: pointer;
 }
 
 .navbar {
