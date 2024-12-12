@@ -53,6 +53,11 @@ body {
     cursor: pointer;
 }
 
+.search-bar:focus {
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 #search-icon {
     margin: 10px;
     color: #5C4A1D;
