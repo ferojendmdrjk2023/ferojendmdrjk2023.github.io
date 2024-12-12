@@ -57,15 +57,15 @@ class SpotifyApp {
     }
 
     setupNavigation() {
-        let trackCard = document.getElementById('track-card');
-        let albumContainer = document.getElementById('album-container');
-        let lyricCard = document.getElementById('lyric-card');
-        let meetContainer = document.getElementById('meet-container');
-        let profileContainer = document.getElementById('profile-container');
-        let navbar = document.querySelector('.navbar');
-        let searchBar = document.querySelector('.search-bar-container');
+        const trackCard = document.getElementById('track-card');
+        const albumContainer = document.getElementById('album-container');
+        const lyricCard = document.getElementById('lyric-card');
+        const meetContainer = document.getElementById('meet-container');
+        const profileContainer = document.getElementById('profile-container');
+        const navbar = document.querySelector('.navbar');
+        const searchBar = document.querySelector('.search-bar-container');
 
-        let hideAllSections = () => {
+        const hideAllSections = () => {
             trackCard.style.display = 'none';
             albumContainer.style.display = 'none';
             lyricCard.style.display = 'none';
@@ -76,7 +76,7 @@ class SpotifyApp {
         navbar.style.display = 'flex';
         searchBar.style.display = 'flex';
 
-        let clearActiveClass = () => {
+        const clearActiveClass = () => {
             const buttons = navbar.querySelectorAll('button');
             buttons.forEach((button) => {
                 button.classList.remove('active');
@@ -84,7 +84,7 @@ class SpotifyApp {
             });
         };
 
-        let setActiveButton = (button) => {
+        const setActiveButton = (button) => {
             clearActiveClass();
             button.classList.add('active');
             button.style.color = 'white';
@@ -140,7 +140,7 @@ class SpotifyApp {
     }
 
     // handleIOSKeyboardIssues() {
-    //     let searchBox = document.getElementById('search-input');
+    //     const searchBox = document.getElementById('search-input');
 
     //     if (this.isIOSDevice()) {
     //         searchBox.setAttribute('readonly', true);
@@ -153,8 +153,8 @@ class SpotifyApp {
     // }
 
     // isIOSDevice() {
-    //     let isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    //     let isStandalone = window.navigator.standalone === true;
+    //     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    //     const isStandalone = window.navigator.standalone === true;
     //     return isIOS || isStandalone;
     // }
 
