@@ -1,480 +1,105 @@
-// Class 1: handshake with Spotify
-class SpotifyAuth {
-    constructor() {
-        this.clientId = 'c5590ef700ad4cc49456e23e65c10069';
-        this.clientSecret = 'a46999b27a804ac09c99406b1b21cada';
-        this.token = null;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="manifest" href="manifest.json">
+    <title>Anthology - The TaySwift Lyric Make Easy<</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <div class="container">
+        <div class="search-bar-container">
+            <i class="fa fa-search" id="search-icon"></i>
+            <input type="text" class="search-bar" id="search-input" placeholder="Search Track Title">
+        </div>
 
-    loadToken(callback) {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = () => {
-            if (xhttp.readyState === 4 && xhttp.status === 200) {
-                let data = JSON.parse(xhttp.responseText);
-                this.token = data.access_token;
-                callback(this.token);
-            }
-        };
-
-        xhttp.open('POST', 'https://accounts.spotify.com/api/token', true);
-        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhttp.setRequestHeader(
-            'Authorization',
-            'Basic ' + btoa(this.clientId + ':' + this.clientSecret)
-        );
-        xhttp.send('grant_type=client_credentials');
-    }
-}
-
-//Class 2: Handling Nav Bar and initiated searchQuery
-class SpotifyApp {
-    constructor() {
-        this.auth = new SpotifyAuth();
-        this.token = null;
-        this.albumManager = null;
-        this.trackManager = null;
-        this.searchQuery = null;
-    }
-
-    init() {
-        this.auth.loadToken((token) => {
-            this.token = token;
-            this.albumManager = new AlbumManager(this.token);
-            this.trackManager = new TrackManager(this.token);
-            this.searchQuery = new searchQuery(this.token);
-
-            this.searchArtist('Taylor Swift', (artistId) => {
-                if (artistId) {
-                    this.albumManager.getAlbums(artistId, (albums) => {
-                        this.albumManager.displayAlbums(albums);
-                    });
-                }
-            });
-
-            this.setupNavigation();
-        });
-    }
-
-
-    
-    setupNavigation() {
-        let trackCard = document.getElementById('track-card');
-        let albumContainer = document.getElementById('album-container');
-        let lyricCard = document.getElementById('lyric-card');
-        let meetContainer = document.getElementById('meet-container');
-        let profileContainer = document.getElementById('profile-container');
-        let navbar = document.querySelector('.navbar');
-        let searchBar = document.querySelector('.search-bar-container'); 
-    
-        let hideAllSections = () => {
-            trackCard.style.display = 'none';
-            albumContainer.style.display = 'none';
-            lyricCard.style.display = 'none';
-            meetContainer.style.display = 'none';
-            profileContainer.style.display = 'none';
-        };
-    
-        navbar.style.display = 'flex'; // Ensure navbar is always visible
-        searchBar.style.display = 'flex'; // Ensure search bar is always visible
-    
-        document.getElementById('main-home').addEventListener('click', () => {
-            hideAllSections();
-            albumContainer.style.display = 'flex';
-        });
-    
-        document.getElementById('song').addEventListener('click', () => {
-            hideAllSections();
-            this.actionSongButtonClick();
-            trackCard.style.display = 'block';
-        });
-    
-        document.getElementById('meet').addEventListener('click', () => {
-            hideAllSections();
-            meetContainer.style.display = 'block';
-        });
-    
-        document.getElementById('profile').addEventListener('click', () => {
-            hideAllSections();
-            profileContainer.style.display = 'block';
-        });
-    
-        document.getElementById('lyric-home').addEventListener('click', () => {
-            hideAllSections();
-            trackCard.style.display = 'block';
-        });
-    
-        document.getElementById('lyric-song').addEventListener('click', () => {
-            hideAllSections();
-            lyricCard.style.display = 'none';
-            trackCard.style.display = 'block';
-        });
-    
-        document.getElementById('track-home').addEventListener('click', () => {
-            hideAllSections();
-            albumContainer.style.display = 'flex';
-        });
-
-        document.getElementById('search-icon').addEventListener('click', () => {
-            app.searchQuery.handleSearch();
-        });
         
-    }
+        <div class="navbar">
+            <button id="main-home">HOME</button>
+            <button id="song">SONG</button>
+            <button id="meet">MEET</button>
+            <button id="profile">PROFILE</button>
+        </div>
+    
+        <div class="album-container" id="album-container" style="display: flex;">
+        </div>
+    
+        <div class="track-card" id="track-card">
+            <div class="navbar">
+                <button id="track-home">HOME</button>
+            </div>
+        </div>
+    
+        <div class="lyric-card" id="lyric-card">
+            <div class="navbar">
+                <button id="lyric-home">HOME</button>
+                <button id="lyric-song">SONG</button>
+            </div>
+        </div>
+    </div>
+   
+
+    <div id="meet-container" style="display: none;">
+            <div id="map"></div>
+        <div class="controls">
+            <button id="get-location-btn">GET MY LOCATION</button>
+            <div id="my-coordinates" class="coordinate-display">My Latitude, Longitude</div>
+            <button id="get-friend-location-btn">GET FRIEND LOCATION</button>
+            <div id="friend-coordinates" class="coordinate-display">Friend Latitude, Longitude</div>
+            <button id="send-bracelet-btn">SEND BRACELET FRIENDSHIP TO FRIEND</button>
+        </div>
+    </div>
+    
+    
+    <div id="bracelet-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <img id="bracelet-image" src="" alt="Bracelet Preview" class="modal-image">
+            <p>Send a bracelet friendship to another Swiftie?</p>
+            <div class="modal-buttons">
+                <button id="confirm-send-btn">Yes</button>
+                <button id="cancel-send-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="response-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="response-message"></p>
+            <div class="modal-buttons">
+                <button id="close-response-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="warning-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="warning-message"></p>
+            <div class="modal-buttons">
+                <button id="warning-close-btn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
     
 
-    searchArtist(artistName, callback) {
-        fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist`, {
-            headers: { Authorization: `Bearer ${this.token}` }
-        })
-            .then((response) => response.json())
-            .then((data) => callback(data.artists.items[0]?.id || null))
-            .catch((err) => console.error('Error searching artist:', err));
-    }
+<div id="profile-container" style="display: none;">
+    <form id="profile-form">
+         <label for="username">Name:</label>
+         <input type="text" id="username" name="username" placeholder="Your Name">
+         <label for="password">Password:</label>
+         <input type="password" id="password" name="password" placeholder="******">
+         <label for="profile-picture">Profile Picture:</label>
+         <input type="file" id="profile-picture" name="profile-picture">
+         <button type="submit">Save Profile</button>
+     </form>
+</div>
+</body>
+</html>
 
-    actionSongButtonClick() {
-        this.searchArtist('Taylor Swift', (artistId) => {
-            if (artistId) {
-                this.albumManager.getAlbums(artistId, (albums) => {
-                    let allTracks = [];
-                    let pending = albums.length;
-
-                    albums.forEach((album) => {
-                        this.trackManager.getTracks(album.id, (tracks) => {
-                            tracks.forEach((track) => {
-                                track.albumName = album.name;
-                            });
-
-                            allTracks.push(...tracks);
-                            pending--;
-
-                            if (pending === 0) {
-                                allTracks.sort((a, b) => a.name.localeCompare(b.name));
-                                this.trackManager.displayTracks(allTracks);
-                            }
-                        });
-                    });
-                });
-            }
-        });
-    }
-}
-
-
-//Class 3: Queary Function
-class searchQuery {
-    constructor(token) {
-        this.token = token;
-    }
-
-    handleSearch() {
-        let searchBox = document.getElementById('search-input'); 
-        let searchedTrack = searchBox.value.trim().toLowerCase(); 
-        let trackCard = document.getElementById('track-card'); 
-        let albumContainer = document.getElementById('album-container'); 
-
-        if (searchedTrack) {
-            app.searchArtist('Taylor Swift', (artistId) => {
-                if (artistId) {
-                    app.albumManager.getAlbums(artistId, (albums) => {
-                        let allTracks = [];
-                        let pending = albums.length;
-
-                        albums.forEach((album) => {
-                            app.trackManager.getTracks(album.id, (tracks) => {
-                                tracks.forEach((track) => {
-                                    track.albumName = album.name;
-                                    allTracks.push(track);
-                                });
-
-                                pending--;
-
-                                if (pending === 0) {
-                                    let matchingTracks = allTracks.filter((track) =>
-                                        track.name.toLowerCase().includes(searchedTrack)
-                                    );
-
-                                    if (matchingTracks.length > 0) {
-                                        app.trackManager.displayTracks(matchingTracks);
-                                        trackCard.style.display = 'block';
-                                        albumContainer.style.display = 'none';
-                                    } else {
-                                        alert('No matching tracks found.');
-                                    }
-
-                                    searchBox.value = ''; // Clear the search bar
-                                }
-                            });
-                        });
-                    });
-                }
-            });
-        } else {
-            alert('Please enter a track title to search.');
-        }
-    }
-}
-
-// Class 4: To Display  Album 
-class AlbumManager {
-    constructor(token) {
-        this.token = token;
-    }
- 
-    getAlbums(artistId, callback) {
-        fetch(`https://api.spotify.com/v1/artists/${artistId}/albums?limit=50`, {
-            headers: { Authorization: `Bearer ${this.token}` }
-        })
-            .then((response) => response.json())
-            .then((data) => callback(data.items || []))
-            .catch((err) => console.error('Error fetching albums:', err));
-    }
-
-    displayAlbums(albums) {
-        let albumContainer = document.getElementById('album-container');
-        albumContainer.innerHTML = ''; // Clear previous content
-
-        let filteredAlbums = albums.filter((album) => {
-            let name = album.name.toLowerCase();
-            return !(
-                name.includes('live') ||
-                name.includes('remix') ||
-                name.includes('acoustic')
-            );
-        });
-
-        filteredAlbums.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
-
-        filteredAlbums.forEach((album) => {
-            let card = document.createElement('div');
-            card.classList.add('card');
-
-            let albumImage = document.createElement('div');
-            albumImage.classList.add('albumcard');
-            albumImage.style.backgroundImage = `url(${album.images[0]?.url || ''})`;
-
-            let albumName = document.createElement('h4');
-            albumName.textContent = album.name;
-
-            card.appendChild(albumImage);
-            card.appendChild(albumName);
-
-            card.onclick = () => {
-                app.trackManager.getTracks(album.id, (tracks) => {
-                    tracks.forEach((track) => {
-                        track.albumName = album.name;
-                    });
-                    app.trackManager.displayTracks(tracks);
-                });
-            };
-
-            albumContainer.appendChild(card);
-        });
-    }
-}
-
-// Class 5: to display album track, display lyric, and link to media audio
-class TrackManager {
-    constructor(token) {
-        this.token = token;
-        this.currentAudio = null;
-        this.setupNavbarListeners();
-    }
-
-    getTracks(albumId, callback) {
-        fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
-            headers: { Authorization: `Bearer ${this.token}` }
-        })
-            .then((response) => response.json())
-            .then((data) => callback(data.items || []))
-            .catch((err) => {});
-    }
-
-    displayTracks(tracks) {
-        let trackContainer = document.getElementById('track-card');
-        trackContainer.innerHTML = '';
-        trackContainer.style.display = 'block';
-        document.getElementById('album-container').style.display = 'none';
-
-        tracks.forEach((track) => {
-            let trackItem = document.createElement('div');
-            trackItem.classList.add('track-item');
-
-            let trackTitle = document.createElement('div');
-            trackTitle.textContent = track.name;
-
-            let albumInfo = document.createElement('div');
-            albumInfo.classList.add('album-name');
-            albumInfo.textContent = `Album: ${track.albumName || 'Unknown'}`;
-
-            let playButton = document.createElement('button');
-            playButton.id = 'btn';
-            playButton.textContent = 'Play Song';
-            playButton.onclick = () => {
-                this.playAudioTrack(track.id);
-            };
-
-            let stopButton = document.createElement('button');
-            stopButton.id = 'btn';
-            stopButton.textContent = 'Stop Song';
-            stopButton.onclick = () => {
-                this.stopAudio();
-            };
-
-            let lyricButton = document.createElement('button');
-            lyricButton.id = 'btn';
-            lyricButton.textContent = 'Show Lyric';
-            lyricButton.onclick = () => {
-                this.stopAudio();
-                this.fetchAndDisplayLyrics(track.id);
-            };
-
-            trackItem.appendChild(trackTitle);
-            trackItem.appendChild(albumInfo);
-            trackItem.appendChild(playButton);
-            trackItem.appendChild(stopButton);
-            trackItem.appendChild(lyricButton);
-
-            trackContainer.appendChild(trackItem);
-        });
-    }
-
-    fetchAndDisplayLyrics(trackId) {
-        fetch('songs.xml')
-            .then((response) => response.text())
-            .then((xmlString) => {
-                let parser = new DOMParser();
-                let xmlDoc = parser.parseFromString(xmlString, 'application/xml');
-                let trackElements = xmlDoc.getElementsByTagName('track');
-
-                for (let track of trackElements) {
-                    let trackIdElement = track.getElementsByTagName('track_id')[0];
-                    if (trackIdElement && trackIdElement.textContent === trackId) {
-                        let imageUrl = track.getElementsByTagName('lyric_content')[0]?.textContent;
-                        this.displayLyrics(imageUrl, trackId);
-                        return;
-                    }
-                }
-                this.displayLyrics(null, trackId);
-            })
-            .catch((err) => {});
-    }
-
-    displayLyrics(imageUrl, trackId) {
-        this.stopAudio();
-
-        let lyricContainer = document.getElementById('lyric-card');
-        lyricContainer.innerHTML = imageUrl
-            ? `<img src="${imageUrl}" style="width: 100%">`
-            : '<p>Lyric and Chord are in progress.</p>';
-        lyricContainer.style.display = 'block';
-        document.getElementById('track-card').style.display = 'none';
-
-        let controls = document.createElement('div');
-        controls.classList.add('lyric-controls');
-
-        let playButton = document.createElement('button');
-        playButton.id = 'btn';
-        playButton.textContent = 'Play Song';
-        playButton.onclick = () => {
-            this.playAudioTrack(trackId, 'lyric-card');
-        };
-
-        let stopButton = document.createElement('button');
-        stopButton.id = 'btn';
-        stopButton.textContent = 'Stop Song';
-        stopButton.onclick = () => {
-            this.stopAudio();
-        };
-
-        controls.appendChild(playButton);
-        controls.appendChild(stopButton);
-
-        lyricContainer.appendChild(controls);
-    }
-
-    playAudioTrack(trackId, errorContainerId = 'track-card') {
-        fetch('songs.xml')
-            .then((response) => response.text())
-            .then((xmlString) => {
-                let parser = new DOMParser();
-                let xmlDoc = parser.parseFromString(xmlString, 'application/xml');
-                let trackElements = xmlDoc.getElementsByTagName('track');
-
-                for (let track of trackElements) {
-                    let trackIdElement = track.getElementsByTagName('track_id')[0];
-                    if (trackIdElement && trackIdElement.textContent === trackId) {
-                        let audioPath = track.getElementsByTagName('audiotrack')[0]?.textContent;
-                        if (audioPath) {
-                            this.playAudio(audioPath);
-                        } else {
-                            this.displayErrorMessage("Audiotrack is unavailable for this song.", errorContainerId);
-                        }
-                        return;
-                    }
-                }
-                this.displayErrorMessage("Track not found.", errorContainerId);
-            })
-            .catch((err) => {});
-    }
-
-    playAudio(audioPath) {
-        if (this.currentAudio) {
-            this.currentAudio.pause();
-            this.currentAudio.currentTime = 0;
-        }
-
-        this.currentAudio = new Audio(audioPath);
-        this.currentAudio.play();
-
-        this.currentAudio.onended = () => {
-            this.currentAudio = null;
-        };
-    }
-
-    stopAudio() {
-        if (this.currentAudio) {
-            this.currentAudio.pause();
-            this.currentAudio.currentTime = 0;
-            this.currentAudio = null;
-        }
-    }
-
-    displayErrorMessage(message, containerId = 'track-card') {
-        let container = document.getElementById(containerId);
-        if (!container) return;
-
-        let errorContainer = document.createElement('div');
-        errorContainer.classList.add('error-popup');
-        errorContainer.textContent = message;
-
-        container.appendChild(errorContainer);
-
-        setTimeout(() => {
-            errorContainer.remove();
-        }, 3000);
-    }
-
-    setupNavbarListeners() {
-        let navbarButtons = document.querySelectorAll('.navbar button');
-        navbarButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                this.stopAudio();
-            });
-        });
-    }
-}
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-        .then((registration) => {
-            console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch((error) => {
-            console.error('Service Worker registration failed:', error);
-        });
-}
-
-
-// Instantiate and initialize the app
-let app = new SpotifyApp();
-app.init();
+    <script src="app.js"></script>
+    <script src="geo.js"></script>
 
