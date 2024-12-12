@@ -26,6 +26,7 @@ class SpotifyAuth {
     }
 }
 
+// Class 2: Create Nav Bar and placeholder searchQuery
 class SpotifyApp {
     constructor() {
         this.auth = new SpotifyAuth();
@@ -176,7 +177,7 @@ class SpotifyApp {
     }
 }
 
-// Search Manager Class
+// Class 3: Query Function
 class SearchManager {
     constructor(token) {
         this.token = token;
@@ -230,7 +231,7 @@ class SearchManager {
     }
 }
 
-// Class 2: Handle Album Display
+// Class 4: To Display  Album
 class AlbumManager {
     constructor(token) {
         this.token = token;
@@ -288,6 +289,7 @@ class AlbumManager {
     }
 }
 
+//Class 5: To Display  Track & Lyric
 class TrackManager {
     constructor(token) {
         this.token = token;
