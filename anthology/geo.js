@@ -108,12 +108,6 @@ class GeoManager {
         }
     }
 
-    showBraceletModal() {
-        let modal = document.getElementById("bracelet-modal");
-        let imageElement = document.getElementById("bracelet-image");
-        imageElement.src = "media/bracellet.jpg";
-        modal.style.display = "flex";
-    }
 
     showWarningModal(message) {
         let warningModal = document.getElementById("warning-modal");
@@ -126,6 +120,15 @@ class GeoManager {
             warningModal.style.display = "none";
         });
     }
+
+    
+    showBraceletModal() {
+        let modal = document.getElementById("bracelet-modal");
+        let imageElement = document.getElementById("bracelet-image");
+        imageElement.src = "media/bracellet.jpg";
+        modal.style.display = "flex";
+    }
+
 
     initModalEventListeners() {
         let modal = document.getElementById("bracelet-modal");
